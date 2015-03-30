@@ -44,11 +44,10 @@ public class Home extends JFrame {
 		JPanel keyPanel = new JPanel ( );
 		keyPanel.setLayout ( new GridLayout ( keyPanelHeight, keyPanelWidth ) );
 		ButtonListener buttonList = new ButtonListener ( );
-		for ( int i = 0; i < keyLabels.length; i++ ) {
-			final String label = keyLabels [ i ];
-			JButton keyButton = new JButton ( label );
-			keyPanel.add ( keyButton );
-			keyButton.addActionListener ( buttonList );
+		for (final String label : keyLabels) {
+			JButton keyButton = new JButton(label);
+			keyPanel.add(keyButton);
+			keyButton.addActionListener(buttonList);
 		}
 
 		JFrame frame = new JFrame ( );
