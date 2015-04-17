@@ -14,7 +14,7 @@ public class InventoryItem {
       name = aName;
       id = anId;
       stock = aStock;
-    )
+    }
       
     public String getName() {
       return name;
@@ -22,12 +22,12 @@ public class InventoryItem {
     
     public int getId() {
       return id;
-      )
+    }
       
     public int getStock() {
       return stock;
     }
-    
+    //make sets voids
     public String setName(String newName) {
       name = newName;
     }
