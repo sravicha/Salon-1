@@ -27,20 +27,22 @@ public class InventoryItem {
     public int getStock() {
       return stock;
     }
-    //make sets voids
-    public String setName(String newName) {
+    
+    public void setName(String newName) {
       name = newName;
     }
     
-    public int setId(int newId) {
+    public void setId(int newId) {
       id = newId;
     }
     
-    public int setStock(int newStock) {
+    public void setStock(int newStock) {
       stock = newStock;
     }
     
-    public int addToStock(int addition) {
+    public void addToStock(int addition) {
       stock += addition;
-      }
+    }
+}
+
      
