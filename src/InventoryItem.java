@@ -8,22 +8,22 @@ public class InventoryItem {
     private String name;
     private int id;
     private int stock;
+    private int price;
+    private String category;
     private String supplier;
     
     InventoryItem() {}
-    InventoryItem(String aName, int aId, int aStock, String aSupplier){
+    InventoryItem(String aName, int aId, int aStock, int aPrice, String aCategory, String aSupplier){
       name = aName;
       id = aId;
       stock = aStock;
+      price = aPrice;
+      category = aCategory;
       supplier = aSupplier;
     }
       
     public String getName() {
       return name;
-    }
-    
-    public String getSupplier() {
-        return supplier;
     }
     
     public int getId() {
@@ -34,12 +34,20 @@ public class InventoryItem {
       return stock;
     }
     
-    public void setName(String newName) {
-      name = newName;
+    public int getPrice() {
+        return price;
     }
     
-    public void setSupplier(String newSupplier) {
-        supplier = newSupplier;
+    public String getCategory() {
+        return category;
+    }
+    
+    public String getSupplier() {
+        return supplier;
+    }
+    
+    public void setName(String newName) {
+      name = newName;
     }
     
     public void setId(int newId) {
@@ -52,6 +60,17 @@ public class InventoryItem {
     
     public void addToStock(int addition) {
       stock += addition;
+    }
+    
+    public void setPrice(int newPrice){
+        price = newPrice;
+    }
+    
+    public void setCategory(String newCategory) {
+        category = newCategory;
+    }
+    public void setSupplier(String newSupplier) {
+        supplier = newSupplier;
     }
 }
 
