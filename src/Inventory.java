@@ -4,39 +4,75 @@
 public class Inventory {
 
     private int id;
-    private String item;
-    private int stock;
-
+    private InventoryItem product;
+    
     Inventory() {}
-    Inventory(int _id, String _item, int _stock) {
+    Inventory(int _id InventoryItem _product) {
         id = _id;
-        item = _item;
-        stock = _stock;
+        product = _product;
     }
-// blah
+    
     public int getId() {
         return id;
     }
-    public String getItem() {
-        return item;
+    
+    public String getProductName() {
+        return product.getName();
     }
-    public int getStock() {
-        return stock;
+    
+    public int getProductID() {
+        return product.getId();
     }
+    
+    public int getProductStock() {
+        return product.getStock();
+    }
+    
+    public int getProductPrice(){
+        return product.getPrice();
+    }
+    
+    public String getProductCategory(){
+        return product.getCategory();
+    }
+    
+    public String getProductSupplier(String name) {
+        return product.getSupplier();
+    }
+    
     public void setId(int id) {
         this.id = id;
     }
-    public void setItem(String item) {
-        this.item = item;
+    
+    public void setProductName(String newName) {
+        product.setName(newName);
     }
-    public void setStock(int stock) {
-        this.stock = stock;
+    
+    public void setProductId(int newId) {
+        product.setId(newId);
     }
+    
+    public void setProductStock(int newStock) {
+        product.setStock(newStock);
+    }
+    
+    public void setProductPrice(int newPrice){
+        product.setPrice(newPrice);
+    }
+    
+    public void setProductCategory(String newCategory){
+        product.setCategory(newCategory);
+    }
+    
+    public void setProductSupplier(String newSupplier) {
+        product.setSupplier(newSupplier);
+    }
+    
 
     @Override
     public String toString() {
         return Integer.toString(id) + ",'" +
-                item + "', " + stock;
+                product.getName() + "', " + product.getStock();
     }
 
     @Override

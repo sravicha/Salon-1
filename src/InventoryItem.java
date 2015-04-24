@@ -8,12 +8,21 @@ public class InventoryItem {
     private String name;
     private int id;
     private int stock;
+    private int price;
+    private String category;
+    private String supplier;
     
     InventoryItem() {}
-    InventoryItem(String aName, int anId, int aStock){
+    InventoryItem(String aName, int aId, int aStock, int aPrice, String aCategory, String aSupplier){
       name = aName;
-      id = anId;
+      id = aId;
       stock = aStock;
+<<<<<<< HEAD
+=======
+      price = aPrice;
+      category = aCategory;
+      supplier = aSupplier;
+>>>>>>> 8629d9e653c7262486fdef8b496a9edb493a535d
     }
       
     public String getName() {
@@ -28,6 +37,21 @@ public class InventoryItem {
       return stock;
     }
     
+<<<<<<< HEAD
+=======
+    public int getPrice() {
+        return price;
+    }
+    
+    public String getCategory() {
+        return category;
+    }
+    
+    public String getSupplier() {
+        return supplier;
+    }
+    
+>>>>>>> 8629d9e653c7262486fdef8b496a9edb493a535d
     public void setName(String newName) {
       name = newName;
     }
@@ -42,6 +66,23 @@ public class InventoryItem {
     
     public void addToStock(int addition) {
       stock += addition;
+<<<<<<< HEAD
       }
 }
+=======
+    }
+    
+    public void setPrice(int newPrice){
+        price = newPrice;
+    }
+    
+    public void setCategory(String newCategory) {
+        category = newCategory;
+    }
+    public void setSupplier(String newSupplier) {
+        supplier = newSupplier;
+    }
+}
+
+>>>>>>> 8629d9e653c7262486fdef8b496a9edb493a535d
      
