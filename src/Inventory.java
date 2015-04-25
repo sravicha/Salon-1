@@ -20,7 +20,7 @@ public class Inventory {
         return product.getName();
     }
     
-    public int getProductID() {
+    public int getProductId() {
         return product.getId();
     }
     
