@@ -12,4 +12,9 @@ Graison Day
 Matthew Meyer     
 Felipe Oliveira       
 
-
+### Build and Run
+```sh
+$ ant salon.xml
+$ java -cp out/production/Salon MAIN
+```
+!!!!!!!!!!!!!!!!!!!!!!! CHANGE WHEN WE HAVE MAIN
