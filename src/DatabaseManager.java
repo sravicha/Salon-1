@@ -1,5 +1,5 @@
 /**
- * @author Matthew Meyer
+ * @author Matthew Meyer and Felipe Oliveira
  */
 import java.sql.*;
 import java.util.*;

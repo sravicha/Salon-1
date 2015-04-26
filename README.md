@@ -8,8 +8,8 @@ Members
 ----
 Katelyn Polahar     
 Sindura Ravichandran        
-Graison Day
-Matthew Meyer    
+Graison Day       
+Matthew Meyer     
 Felipe Oliveira       
 
 
