@@ -12,9 +12,9 @@ Graison Day
 Matthew Meyer     
 Felipe Oliveira       
 
-### Build and Run
+### Build and Run with Ant
 ```sh
-$ ant salon.xml
-$ java -cp out/production/Salon MAIN
+$ cd path/to/dir/Salon
+$ ant -f salon.xml
+$ java -cp out/ Salon
 ```
-!!!!!!!!!!!!!!!!!!!!!!! CHANGE WHEN WE HAVE MAIN

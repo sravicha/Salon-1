@@ -105,7 +105,7 @@
   
   <property name="compiler.args.salon" value="-encoding UTF-8 -source 1.6 ${compiler.args}"/>
   
-  <property name="salon.output.dir" value="${module.salon.basedir}/out/production/Salon"/>
+  <property name="salon.output.dir" value="${module.salon.basedir}/out/"/>
   <property name="salon.testoutput.dir" value="${module.salon.basedir}/out/test/Salon"/>
   
   <path id="salon.module.bootclasspath">
