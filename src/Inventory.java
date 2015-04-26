@@ -65,7 +65,7 @@ public class Inventory {
     public void setPrice(int newPrice){
         price = newPrice;
     }
-    
+
     public void setCategory(String newCategory) {
         category = newCategory;
     }
