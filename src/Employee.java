@@ -2,17 +2,12 @@
  * @author Matthew Meyer
  */
 public class Employee extends Person {
-
     // Sort later in GUI
     // Collections.sort(pizzas, new Comparator<Pizza>() {
     // @Override
     // public int compare(Pizza p1, Pizza p2) {
     //     return new CompareToBuilder().append(p1.size, p2.size).append(p1.nrOfToppings, p2.nrOfToppings).append(p1.name, p2.name).toComparison();
     // }});
-
-
-
-
     private int salary;
     private boolean isManager;
 

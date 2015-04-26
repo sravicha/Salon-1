@@ -7,18 +7,18 @@ import java.util.Date;
 
 public class DatabaseManager {
 
-    private final static String DatabaseDriver   = "org.sqlite.JDBC";
-    private final static String SalonDatabase    = "jdbc:sqlite:Salon.db";
-    private final static String EmployeeTable    = "EMPLOYEE";
-    private final static String InventoryTable   = "INVENTORY";
-    private final static String AppointmentTable = "APPOINTMENT";
+    private final static String DatabaseDriver         = "org.sqlite.JDBC";
+    private final static String SalonDatabase          = "jdbc:sqlite:Salon.db";
+    private final static String EmployeeTable          = "EMPLOYEE";
+    private final static String InventoryTable         = "INVENTORY";
+    private final static String AppointmentTable       = "APPOINTMENT";
     private final static String FinancialBuildingTable = "FINANCIAL_BUILDING";
     private final static String FinancialEmployeeTable = "FINANCIAL_EMPLOYEE";
     private final static String FinancialSupplierTable = "FINANCIAL_SUPPLIER";
-    private final static String FinancialSalesTable = "FINANCIAL_SALES";
-    private final static String SupplierTable = "SUPPLIER";
-    private final static String ServiceTable = "SERVICE";
-    private final static String ClientTable = "CLIENT";
+    private final static String FinancialSalesTable    = "FINANCIAL_SALES";
+    private final static String SupplierTable          = "SUPPLIER";
+    private final static String ServiceTable           = "SERVICE";
+    private final static String ClientTable            = "CLIENT";
     
     /**
      * The purpose of this function is to create the database and initialize the tables.
@@ -159,6 +159,7 @@ public class DatabaseManager {
     }
     /**
      * Get employee info from database
+     * Ex) LookupEmployee ("Matt", "FIRST_NAME") will return an ArrayList of employees that have the firstname of matt
      * @param attribute attribute of employee(s) that we are looking for; can be int or string
      * @param field column of database to find attribute
      * @return Arraylist of all employees who have the specified attribute of the specified field
@@ -179,7 +180,7 @@ public class DatabaseManager {
     }
 
     /**
-     * Makes the employee die with respect to the company
+     * Deletes the employee from the system
      * @param burntToACrisp THROW HIM TO THE DOGS!
      */
     public static void FireEmployee(Employee burntToACrisp) {
@@ -391,7 +392,8 @@ public class DatabaseManager {
 
                 stmt = c.createStatement();
                 
-                ResultSet rs = stmt.executeQuery("SELECT "+ attribute2 +" FROM " + table + " WHERE "+ attribute + " >= " + start.getTime() +" AND " + attribute + " < "+ end.getTime());
+                ResultSet rs = stmt.executeQuery("SELECT "+ attribute2 +" FROM " + table + " WHERE "+ attribute + " >= "
+                        + start.getTime() +" AND " + attribute + " < "+ end.getTime());
                     
                 while (rs.next()) {
                     result+=rs.getFloat(attribute2);
@@ -487,7 +489,8 @@ public class DatabaseManager {
             try {
 
                 stmt = c.createStatement();
-                ResultSet rs = stmt.executeQuery("SELECT "+ attribute + " FROM " + table + " WHERE " + attribute2 + " = '" + item +"' AND DATE >= " + start.getTime() +" AND DATE < "+ end.getTime());
+                ResultSet rs = stmt.executeQuery("SELECT "+ attribute + " FROM " + table + " WHERE " + attribute2 + " = '"
+                        + item +"' AND DATE >= " + start.getTime() +" AND DATE < "+ end.getTime());
                     
                 while (rs.next()) {
                     result+=rs.getFloat(attribute);
