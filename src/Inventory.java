@@ -96,4 +96,4 @@ public class Inventory {
     public boolean equals(Object obj) {
         return (obj instanceof Inventory && toString().equals(obj.toString()));
     }
-}
+
