@@ -1,12 +1,12 @@
-HAVE:
+Documents:
  - Project Specifications
  - Data Flow Diagram
  - Data Dictionary
+ - State Chart Diagram
+ - Use Case Diagram
+ - GANTT chart
+ - Sequence Diagram(s)
 NEED:
  - Structure Chart
- - Use Case Diagram
- - State Chart Diagram
  - Class Diagram
- - Sequence Diagram(s)
- - GANTT chart
  - FINAL PRESENTATION SLIDES
