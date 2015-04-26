@@ -4,7 +4,6 @@
 import java.sql.*;
 import java.util.*;
 import java.util.Date;
-import java.util.ArrayList;
 
 public class DatabaseManager {
 
@@ -26,8 +25,8 @@ public class DatabaseManager {
      * It should only be called once in the lifetime of the entire program during installation.
      */
     public static void Create() {
-        Connection c = null;
-        Statement stmt = null;
+        Connection c;
+        Statement stmt;
         try {
             Class.forName(DatabaseDriver);
             c = DriverManager.getConnection(SalonDatabase);
@@ -382,8 +381,8 @@ public class DatabaseManager {
 
     public static float ValuePeriod (String table, String attribute, String attribute2, Date start, Date end){
         float result = 0;
-        Connection c = null;
-        Statement stmt = null;
+        Connection c;
+        Statement stmt;
         try {
             Class.forName("org.sqlite.JDBC");
             c = DriverManager.getConnection("jdbc:sqlite:Salon.db");
@@ -414,10 +413,10 @@ public class DatabaseManager {
     }
     
     public static Date getMinDate (String table, String attribute){
-        Date result=new Date(1,1,2014);
+        Date result = new Date(1,1,2014);
        
-        Connection c = null;
-        Statement stmt = null;
+        Connection c;
+        Statement stmt;
         try {
             Class.forName("org.sqlite.JDBC");
             c = DriverManager.getConnection("jdbc:sqlite:Salon.db");
@@ -449,8 +448,8 @@ public class DatabaseManager {
     public static Date getMaxDate (String table, String attribute){
         Date result=new Date(1,1,2014);
        
-        Connection c = null;
-        Statement stmt = null;
+        Connection c;
+        Statement stmt;
         try {
             Class.forName("org.sqlite.JDBC");
             c = DriverManager.getConnection("jdbc:sqlite:Salon.db");
@@ -479,8 +478,8 @@ public class DatabaseManager {
     
     public static float getValueCategory (String table, String attribute, String attribute2, String item, Date start, Date end){
         float result = 0;
-        Connection c = null;
-        Statement stmt = null;
+        Connection c;
+        Statement stmt;
         try {
             Class.forName("org.sqlite.JDBC");
             c = DriverManager.getConnection("jdbc:sqlite:Salon.db");
@@ -508,8 +507,8 @@ public class DatabaseManager {
     }
     
     private static void Add(String values, String table) {
-        Connection c = null;
-        Statement stmt = null;
+        Connection c;
+        Statement stmt;
         try {
             Class.forName(DatabaseDriver);
             c = DriverManager.getConnection(SalonDatabase);
@@ -540,8 +539,8 @@ public class DatabaseManager {
         String selector = (field.equals("") && attribute.equals("")) ?
                 "" : " WHERE " + field + "='" + attribute + "'";
         ArrayList<T> tableItems = new ArrayList<T>();
-        Connection c = null;
-        Statement stmt = null;
+        Connection c;
+        Statement stmt;
         try {
             Class.forName(DatabaseDriver);
             c = DriverManager.getConnection(SalonDatabase);
@@ -660,8 +659,8 @@ public class DatabaseManager {
             ID = Integer.toString(((Appointment) obj).getId());
         }
         if (ID.isEmpty()) return;
-        Connection c = null;
-        Statement stmt = null;
+        Connection c;
+        Statement stmt;
         try {
             Class.forName(DatabaseDriver);
             c = DriverManager.getConnection(SalonDatabase);

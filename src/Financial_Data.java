@@ -3,12 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
 import java.util.Date;
 /**
  *
@@ -17,15 +11,14 @@ import java.util.Date;
 public class Financial_Data extends Financial{
     private float financialBuildingTotal, financialEmployeeTotal, financialSupplierTotal;
     private float monthBalance, monthExpense, monthIncome;
-    private Date startPeriod, endPeriod, minDateIncome, maxDateIncome;
     private float monthPaymentType[] = new float[3];
     
     Financial_Data(){
         Date a, b;
         a = getStartMonthDay();
         b = getLastMonthDay();
-        minDateIncome = DatabaseManager.getMinDate("FINANCIAL_SALES", "DATE");
-        maxDateIncome = DatabaseManager.getMaxDate("FINANCIAL_SALES", "DATE");
+        Date minDateIncome = DatabaseManager.getMinDate("FINANCIAL_SALES", "DATE");
+        Date maxDateIncome = DatabaseManager.getMaxDate("FINANCIAL_SALES", "DATE");
 
         monthIncome = calculePeriodIncome(a,b);
         financialBuildingTotal = calculePeriodExpense("FINANCIAL_BUILDING", a, b);
@@ -41,10 +34,10 @@ public class Financial_Data extends Financial{
     }
     //GETTER's SETTER's
     public void setStartPeriod(Date startPeriod) {
-        this.startPeriod = startPeriod;
+        Date startPeriod1 = startPeriod;
     }
     public void setEndPeriod(Date endPeriod) {
-        this.endPeriod = endPeriod;
+        Date endPeriod1 = endPeriod;
     }
     public float getMonthIncome() {
         return monthIncome;
@@ -104,8 +97,7 @@ public class Financial_Data extends Financial{
     
     private Date getStartMonthDay(){
         Date a = getTodaysDate();
-        Date start = makeDate(1, a.getMonth()+1, a.getYear()+1900);
-        return start;
+        return makeDate(1, a.getMonth()+1, a.getYear()+1900);
     }
     
     private Date getLastMonthDay(){

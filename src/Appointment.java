@@ -15,6 +15,7 @@ public class Appointment {
 		this.clientName = clientName;
 		this.stylistName = stylistName;
 		this.service = service;
+
 	}
 
 	public int getId() {

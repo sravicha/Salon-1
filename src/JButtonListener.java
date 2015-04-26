@@ -12,7 +12,7 @@ public class JButtonListener implements ActionListener
 	{
 		JButton button = ( JButton ) event.getSource ( );
 		String label = button.getText ( );
-		if ( label == "Exit" )
+		if (label.equals("Exit"))
 		{
 			System.exit ( 0 );
 		}

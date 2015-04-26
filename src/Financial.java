@@ -1,4 +1,3 @@
-import java.text.*;
 import java.util.*;
 
 /**
@@ -14,9 +13,8 @@ public class Financial {
 
     //AUX METHODS
     public Date getTodaysDate(){
-        Date date = Calendar.getInstance().getTime();
         //DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-        return date;
+        return new Date();
     }
     /*
     public Date makeDate (int day, int month, int year){ //dd-mm-yyyy
@@ -43,7 +41,6 @@ public class Financial {
     public Date makeDate (int day, int month, int year){ //dd-mm-yyyy
         int auxYear;
         auxYear = year - 2000 + 100;
-        Date a = new Date(auxYear, month - 1, day);
-        return a;
+        return new Date(auxYear, month - 1, day);
     }
 }

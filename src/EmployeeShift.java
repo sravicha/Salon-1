@@ -14,22 +14,18 @@ public class EmployeeShift {
 	
 	public Date getStartDate() {
 		return startDate;
-		
 	}
 	
 	public Date getEndDate() {
 		return endDate;
-		
 	}
 	
 	public String getEmployee() {
 		return employee;
-
 	}
 	
 	public String toString() {
 		return "Start of Shift: " + getStartDate() + "End of Shift: " + getEndDate() + "Employee: " + getEmployee();
-	
 	}
  }
 

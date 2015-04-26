@@ -74,7 +74,7 @@ public class Home extends JFrame {
 			titleField.setText ( " " + label + " button clicked" );
 				// This is just for checking that the button works even
 				//  if the code for what the button does is incomplete
-			if ( label == "Calendar" ) {
+			if (label.equals("Calendar")) {
 				String [ ] calendarHomeKeyLabels = { 
 											"Previous Week", 
 											"Next Week", 
@@ -89,7 +89,7 @@ public class Home extends JFrame {
 				calendarHome.titleField.setSize ( 10, 25 );
 				calendarHome.setVisible ( true );
 			}
-			if ( label == "Register" ) {
+			if (label.equals("Register")) {
 				String [ ] registerHomeKeyLabels = { 
 											"New Transaction", 
 											"Add Product/Service", 
@@ -100,7 +100,7 @@ public class Home extends JFrame {
 				registerHome.titleField.setSize ( 10, 25 );
 				registerHome.setVisible ( true );
 			}
-			if ( label == "Inventory" ) {
+			if (label.equals("Inventory")) {
 				String [ ] inventoryHomeKeyLabels = { 
 											"View Inventory", 
 											"Update Inventory", 
@@ -110,7 +110,7 @@ public class Home extends JFrame {
 				inventoryHome.titleField.setSize ( 10, 25 );
 				inventoryHome.setVisible ( true );
 			}
-			if ( label == "People" ) {
+			if (label.equals("People")) {
 				String [ ] peopleHomeKeyLabels = { 
 											"Customers", 
 											"Employees", 
@@ -120,7 +120,7 @@ public class Home extends JFrame {
 				peopleHome.titleField.setSize ( 10, 25 );
 				peopleHome.setVisible ( true );
 			}
-			if ( label == "Exit" ) {
+			if (label.equals("Exit")) {
 				Home.Exit ( );
 			}
 		}
