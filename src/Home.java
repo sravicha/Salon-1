@@ -149,7 +149,7 @@ public class Home extends JFrame {
 
 	private JTextArea titleField;
 	public static String menuTitle;
-	public static String [ ] keyLabels;
+	public static String [] keyLabels;
 	public static int keyPanelHeight;
 	public static int keyPanelWidth;
 	public static int titleFieldHeight;

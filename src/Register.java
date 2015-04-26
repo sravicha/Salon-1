@@ -1,6 +1,8 @@
 import javax.swing.*;
 import javax.swing.border.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class Register 
 {
@@ -25,11 +27,26 @@ public class Register
 		// ... ... Inventory
 		// ... ... ... Services
 		// ... ... ... ... Haircut Button
-							JButton haircutButton = buttonFunction("------Haircut------", new JButtonListener());
+							JButton haircutButton = buttonFunction("------Haircut------", new ActionListener() {
+								@Override
+								public void actionPerformed(ActionEvent actionEvent) {
+
+								}
+							});
 		// ... ... ... ... Style Button
-							JButton styleButton = buttonFunction("-------Style-------", new JButtonListener());
+							JButton styleButton = buttonFunction("-------Style-------", new ActionListener() {
+								@Override
+								public void actionPerformed(ActionEvent actionEvent) {
+
+								}
+							});
 		// ... ... ... ... Color Button
-							JButton colorButton = buttonFunction("-------Color-------", new JButtonListener());
+							JButton colorButton = buttonFunction("-------Color-------", new ActionListener() {
+								@Override
+								public void actionPerformed(ActionEvent actionEvent) {
+
+								}
+							});
 		// ... ... ... ... Perm Button
 							JButton permButton = buttonFunction("--------Perm-------", new JButtonListener());
 		// ... ... ... ... Shampoo Button
@@ -142,7 +159,7 @@ public class Register
 	}
 	public static int defaultClose;
 
-	private JButton buttonFunction (String name, JButtonListener buttonListener) {
+	private JButton buttonFunction (String name, ActionListener buttonListener) {
 		JButton button = new JButton(name);
 		button.setBorder(BorderFactory.createEtchedBorder(EtchedBorder.LOWERED));
 		button.addActionListener(buttonListener);

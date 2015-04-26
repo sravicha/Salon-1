@@ -3,14 +3,16 @@
  */
 
 import java.sql.*;
-import java.util.ArrayList;
+import java.util.*;
+import java.util.Date;
 
 public class DatabaseManager {
 
-    private final static String DatabaseDriver = "org.sqlite.JDBC";
-    private final static String SalonDatabase  = "jdbc:sqlite:Salon.db";
-    private final static String EmployeeTable  = "EMPLOYEE";
-    private final static String InventoryTable = "INVENTORY";
+    private final static String DatabaseDriver   = "org.sqlite.JDBC";
+    private final static String SalonDatabase    = "jdbc:sqlite:Salon.db";
+    private final static String EmployeeTable    = "EMPLOYEE";
+    private final static String InventoryTable   = "INVENTORY";
+    private final static String AppointmentTable = "APPOINTMENT";
 
     /**
      * The purpose of this function is to create the database and initialize the tables.
@@ -38,9 +40,22 @@ public class DatabaseManager {
                 stmt.executeUpdate(sql);
                 sql = "CREATE TABLE " + InventoryTable +
                         "(ID             INT PRIMARY KEY NOT NULL," +
-                        " ITEM           VARCHAR(20)," +
-                        " STOCK          INT)";
+                        " ITEM_NAME      VARCHAR(20)," +
+                        " PRICE          INT," +
+                        " STOCK          INT," +
+                        " CATEGORY       VARCHAR (20)," +
+                        " SUPPLIER       VARCHAR (20))";
                 stmt.executeUpdate(sql);
+                sql = "CREATE TABLE " + AppointmentTable +
+                        "(ID             INT PRIMARY KEY NOT NULL," +
+                        " APPT_DATE      VARCHAR (30)," +
+                        " CLIENT         VARCHAR (20)," +
+                        " EMPLOYEE       VARCHAR (20)," +
+                        " SERVICE        VARCHAR (20))";
+                stmt.executeUpdate(sql);
+
+                ///// CREATE TABLE FOR CUSTOMER
+
                 stmt.close();
             } catch (Exception e) {
                 e.printStackTrace();
@@ -100,6 +115,7 @@ public class DatabaseManager {
         AddEmployee(worker);
     }
 
+    // INVENTORY //
     public static ArrayList<Inventory> AllInventory() {
         return LookupInventory("","");
     }
@@ -111,7 +127,7 @@ public class DatabaseManager {
     }
 
     public static void AddInventory(Inventory product) {
-        Add(product.toString(), InventoryTable);
+        Add(product.toDBString(), InventoryTable);
     }
 
     public static void RemoveInventory(Inventory item) {
@@ -121,6 +137,37 @@ public class DatabaseManager {
     public static void UpdateInventory(Inventory item) {
         RemoveInventory(item);
         AddInventory(item);
+    }
+
+    // APPOINTMENT //
+    public static ArrayList<Appointment> AllAppointments() {
+        return LookupAppointment("","");
+    }
+
+    public static ArrayList<Appointment> LookupAppointment(Date date, String field) {
+        return LookupAppointment(date.toString(), field);
+    }
+
+    public static ArrayList<Appointment> LookupAppointment(String attr, String field) {
+        return Get(attr, field, AppointmentTable, new Appointment());
+    }
+
+    public static void AddAppointment(Appointment appt) {
+        String apptString = Integer.toString(appt.getId()) + ", '" +
+                appt.getDate().toString() + "', '" +
+                appt.getClientName() + "', '" +
+                appt.getStylistName() + "', '" +
+                appt.getService() + "'";
+        Add(apptString, AppointmentTable);
+    }
+
+    public static void RemoveAppointment (Appointment appt) {
+        Delete(appt, AppointmentTable);
+    }
+
+    public static void UpdateAppointment (Appointment appt) {
+        RemoveAppointment(appt);
+        AddAppointment(appt);
     }
 
     private static void Add(String values, String table) {
@@ -185,7 +232,7 @@ public class DatabaseManager {
                 else if (obj instanceof Inventory) {
                     while (rs.next()) {
                         ((Inventory) obj).setId(rs.getInt("id"));
-                        ((Inventory) obj).setItem(rs.getString("item"));
+                        ((Inventory) obj).setName(rs.getString("item"));
                         ((Inventory) obj).setStock(rs.getInt("stock"));
                         tableItems.add(obj);
                     }
@@ -211,6 +258,9 @@ public class DatabaseManager {
         }
         else if (obj instanceof Inventory) {
             ID = Integer.toString(((Inventory) obj).getId());
+        }
+        else if (obj instanceof Appointment) {
+            ID = Integer.toString(((Appointment) obj).getId());
         }
         if (ID.isEmpty()) return;
         Connection c = null;

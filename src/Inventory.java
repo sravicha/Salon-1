@@ -1,83 +1,99 @@
-/**
- * @author Matthew Meyer
- */
-public class Inventory {
+/** a
+* @author Graison Day
+*/
+// A class meant for items that are supposed to go into inventories
 
-    private int id;
-    private InventoryItem product;
+public class Inventory {
     
-    Inventory() {}
-    Inventory(int _id InventoryItem _product) {
-        id = _id;
-        product = _product;
+    private String name;
+    private int id;
+    private int stock;
+    private int price;
+    private String category;
+    private String supplier;
+    
+    public Inventory() {}
+    public Inventory(String aName, int aId, int aStock, int aPrice, String aCategory, String aSupplier){
+      name = aName;
+      id = aId;
+      stock = aStock;
+      price = aPrice;
+      category = aCategory;
+      supplier = aSupplier;
+    }
+      
+    public String getName() {
+      return name;
     }
     
     public int getId() {
-        return id;
+      return id;
+    }
+      
+    public int getStock() {
+      return stock;
+    }
+
+    public int getPrice() {
+        return price;
     }
     
-    public String getProductName() {
-        return product.getName();
+    public String getCategory() {
+        return category;
     }
     
-    public int getProductID() {
-        return product.getId();
+    public String getSupplier() {
+        return supplier;
+    }
+
+    public void setName(String newName) {
+      name = newName;
     }
     
-    public int getProductStock() {
-        return product.getStock();
+    public void setId(int newId) {
+      id = newId;
     }
     
-    public int getProductPrice(){
-        return product.getPrice();
+    public void setStock(int newStock) {
+      stock = newStock;
     }
     
-    public String getProductCategory(){
-        return product.getCategory();
+    public void addToStock(int addition) {
+      stock += addition;
     }
     
-    public String getProductSupplier(String name) {
-        return product.getSupplier();
+    public void setPrice(int newPrice){
+        price = newPrice;
     }
     
-    public void setId(int id) {
-        this.id = id;
+    public void setCategory(String newCategory) {
+        category = newCategory;
     }
-    
-    public void setProductName(String newName) {
-        product.setName(newName);
+    public void setSupplier(String newSupplier) {
+        supplier = newSupplier;
     }
-    
-    public void setProductId(int newId) {
-        product.setId(newId);
-    }
-    
-    public void setProductStock(int newStock) {
-        product.setStock(newStock);
-    }
-    
-    public void setProductPrice(int newPrice){
-        product.setPrice(newPrice);
-    }
-    
-    public void setProductCategory(String newCategory){
-        product.setCategory(newCategory);
-    }
-    
-    public void setProductSupplier(String newSupplier) {
-        product.setSupplier(newSupplier);
-    }
-    
 
     @Override
     public String toString() {
-        return Integer.toString(id) + ",'" +
-                product.getName() + "', " + product.getStock();
+        return  "Product #:\t" + Integer.toString(id) +
+                "Name:\t" + name +
+                "Price:\t$" + Integer.toString(price/100) + "." + Integer.toString(price%100) +
+                "Stock:\t" + Integer.toString(stock) +
+                "Category:\t" + category +
+                "Supplier:\t" + supplier;
+    }
+
+    public String toDBString() {
+        return Integer.toString(id) + ", '" +
+                name + "', " +
+                Integer.toString(price) + ", " +
+                Integer.toString(stock) + ", '" +
+                category + "', '" +
+                supplier + "'";
     }
 
     @Override
     public boolean equals(Object obj) {
         return (obj instanceof Inventory && toString().equals(obj.toString()));
     }
-
 }
