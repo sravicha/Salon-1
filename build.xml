@@ -18,9 +18,8 @@
     <target name="make" depends="compile">
         <mkdir dir="out/jar"/>
         <jar destfile="out/jar/Salon.jar" basedir="out/classes">
-            <classpath refid="databaseDriver"/>
             <manifest>
-                <attribute name="Main-Class" value="Installation"/>
+                <attribute name="Main-Class" value="HomeGUITester"/>
             </manifest>
         </jar>
     </target>

@@ -10,7 +10,7 @@ public class InventoryGUI
 		defaultClose = newDefaultClose;
 
 		// Window
-			JFrame windowFrame = new JFrame ( );
+			final JFrame windowFrame = new JFrame ( );
 			windowFrame.setDefaultCloseOperation ( defaultClose );
 		// ... Window Components
 		// ... ... Title
