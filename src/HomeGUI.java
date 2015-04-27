@@ -35,7 +35,7 @@ public class HomeGUI
 									public void actionPerformed(ActionEvent event) {
 										@SuppressWarnings("unused")
 										CalendarGUI calendarGUI = new CalendarGUI ( JFrame.DISPOSE_ON_CLOSE );
-										windowFrame.setVisible ( false );
+
 									}
 								}
 							);
@@ -49,7 +49,7 @@ public class HomeGUI
 									public void actionPerformed(ActionEvent event) {
 										@SuppressWarnings("unused")
 										RegisterGUI registerGUI = new RegisterGUI ( JFrame.DISPOSE_ON_CLOSE );
-										windowFrame.setVisible ( false );
+
 									}
 								}
 							);
@@ -63,7 +63,7 @@ public class HomeGUI
 									public void actionPerformed(ActionEvent event) {
 										@SuppressWarnings("unused")
 										InventoryGUI inventoryGUI = new InventoryGUI ( JFrame.DISPOSE_ON_CLOSE );
-										windowFrame.setVisible ( false );
+
 									}
 								}
 							);
@@ -76,7 +76,7 @@ public class HomeGUI
 									@Override
 									public void actionPerformed(ActionEvent event) {
 										// FinancialGUI constructor call here
-//										windowFrame.setVisible ( false );
+//
 									}
 								}
 							);
@@ -90,7 +90,7 @@ public class HomeGUI
 									public void actionPerformed(ActionEvent event) {
 										@SuppressWarnings("unused")
 										PeopleGUI peopleGUI = new PeopleGUI ( JFrame.DISPOSE_ON_CLOSE );
-										windowFrame.setVisible ( false );
+
 									}
 								}
 							);

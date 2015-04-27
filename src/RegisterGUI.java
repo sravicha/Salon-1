@@ -8,12 +8,11 @@ public class RegisterGUI
 {
 	public RegisterGUI ( int newDefaultClose )
 	{
-		defaultClose = newDefaultClose;
 
 		// Window
-			JFrame windowFrame = new JFrame ( );
-			windowFrame.setDefaultCloseOperation ( defaultClose );
-			GridBagLayoutManager windowManager = new GridBagLayoutManager ( windowFrame );
+			final JFrame windowFrame = new JFrame ( );
+			windowFrame.setDefaultCloseOperation (newDefaultClose);
+			final GridBagLayoutManager windowManager = new GridBagLayoutManager ( windowFrame );
 		// ... Window Components
 		// ... ... Title
 		// ... ... ... Title Text Area
@@ -25,7 +24,7 @@ public class RegisterGUI
 						GridBagLayoutManager titleManager = new GridBagLayoutManager ( titlePanel );
 						titleManager.addWithConstraints ( titleTextArea, 0, 0, 6, 1, 0, 0 );
 		// ... ... Inventory
-					JPanel inventoryPanel = new JPanel ( );
+					final JPanel inventoryPanel = new JPanel ( );
 					inventoryPanel.setBorder ( BorderFactory.createEtchedBorder ( EtchedBorder.LOWERED ) );
 					GridBagLayoutManager inventoryManager = new GridBagLayoutManager ( inventoryPanel );
 		// ... ... ... Services
@@ -39,7 +38,7 @@ public class RegisterGUI
 									public void actionPerformed ( ActionEvent event )
 									{
 										windowManager.remove ( inventoryPanel, windowFrame );
-										JPanel haircutOptionsPanel = new JPanel ( );
+										final JPanel haircutOptionsPanel = new JPanel ( );
 										haircutOptionsPanel.setBorder ( BorderFactory.createEtchedBorder ( EtchedBorder.LOWERED ) );
 										GridBagLayoutManager haircutOptionsManager = new GridBagLayoutManager ( haircutOptionsPanel );
 		// ... ... ... ... ... ... ... Haircut Options
@@ -122,7 +121,7 @@ public class RegisterGUI
 									public void actionPerformed ( ActionEvent event )
 									{
 										windowManager.remove ( inventoryPanel, windowFrame );
-										JPanel styleOptionsPanel = new JPanel ( );
+										final JPanel styleOptionsPanel = new JPanel ( );
 										styleOptionsPanel.setBorder ( BorderFactory.createEtchedBorder ( EtchedBorder.LOWERED ) );
 										GridBagLayoutManager styleOptionsManager = new GridBagLayoutManager ( styleOptionsPanel );
 		// ... ... ... ... ... ... ... Style Options
@@ -205,7 +204,7 @@ public class RegisterGUI
 									public void actionPerformed ( ActionEvent event )
 									{
 										windowManager.remove ( inventoryPanel, windowFrame );
-										JPanel colorOptionsPanel = new JPanel ( );
+										final JPanel colorOptionsPanel = new JPanel ( );
 										colorOptionsPanel.setBorder ( BorderFactory.createEtchedBorder ( EtchedBorder.LOWERED ) );
 										GridBagLayoutManager colorOptionsManager = new GridBagLayoutManager ( colorOptionsPanel );
 		// ... ... ... ... ... ... ... Color Options
@@ -288,7 +287,7 @@ public class RegisterGUI
 										public void actionPerformed ( ActionEvent event )
 										{
 											windowManager.remove ( inventoryPanel, windowFrame );
-											JPanel permOptionsPanel = new JPanel ( );
+											final JPanel permOptionsPanel = new JPanel ( );
 											permOptionsPanel.setBorder ( BorderFactory.createEtchedBorder ( EtchedBorder.LOWERED ) );
 											GridBagLayoutManager permOptionsManager = new GridBagLayoutManager ( permOptionsPanel );
 			// ... ... ... ... ... ... ... Perm Options
@@ -371,7 +370,7 @@ public class RegisterGUI
 									public void actionPerformed ( ActionEvent event )
 									{
 										windowManager.remove ( inventoryPanel, windowFrame );
-										JPanel shampooOptionsPanel = new JPanel ( );
+										final JPanel shampooOptionsPanel = new JPanel ( );
 										shampooOptionsPanel.setBorder ( BorderFactory.createEtchedBorder ( EtchedBorder.LOWERED ) );
 										GridBagLayoutManager shampooOptionsManager = new GridBagLayoutManager ( shampooOptionsPanel );
 		// ... ... ... ... ... ... ... Shampoo Options
@@ -454,7 +453,7 @@ public class RegisterGUI
 									public void actionPerformed ( ActionEvent event )
 									{
 										windowManager.remove ( inventoryPanel, windowFrame );
-										JPanel conditionOptionsPanel = new JPanel ( );
+										final JPanel conditionOptionsPanel = new JPanel ( );
 										conditionOptionsPanel.setBorder ( BorderFactory.createEtchedBorder ( EtchedBorder.LOWERED ) );
 										GridBagLayoutManager conditionOptionsManager = new GridBagLayoutManager ( conditionOptionsPanel );
 		// ... ... ... ... ... ... ... Condition Options
@@ -537,7 +536,7 @@ public class RegisterGUI
 									public void actionPerformed ( ActionEvent event )
 									{
 										windowManager.remove ( inventoryPanel, windowFrame );
-										JPanel deepConditionOptionsPanel = new JPanel ( );
+										final JPanel deepConditionOptionsPanel = new JPanel ( );
 										deepConditionOptionsPanel.setBorder ( BorderFactory.createEtchedBorder ( EtchedBorder.LOWERED ) );
 										GridBagLayoutManager deepConditionOptionsManager = new GridBagLayoutManager ( deepConditionOptionsPanel );
 		// ... ... ... ... ... ... ... Deep Condition Options
@@ -620,7 +619,7 @@ public class RegisterGUI
 									public void actionPerformed ( ActionEvent event )
 									{
 										windowManager.remove ( inventoryPanel, windowFrame );
-										JPanel otherServicesOptionsPanel = new JPanel ( );
+										final JPanel otherServicesOptionsPanel = new JPanel ( );
 										otherServicesOptionsPanel.setBorder ( BorderFactory.createEtchedBorder ( EtchedBorder.LOWERED ) );
 										GridBagLayoutManager otherServicesOptionsManager = new GridBagLayoutManager ( otherServicesOptionsPanel );
 		// ... ... ... ... ... ... ... Other Services Options
@@ -865,7 +864,5 @@ public class RegisterGUI
 				windowFrame.setVisible ( true );
 				windowFrame.setLocationRelativeTo ( null );
 	}
-
-	private static int defaultClose;
 
 }
