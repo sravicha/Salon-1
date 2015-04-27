@@ -1,6 +1,7 @@
 /**
  * @author Felipe
  */
+import java.text.*;
 import java.util.*;
 
 public class Financial_Employee extends Financial{
@@ -11,8 +12,8 @@ public class Financial_Employee extends Financial{
     
     //CONSTRUCTOR
     public Financial_Employee(){}
-    public Financial_Employee(int employeeID, float salary, int hourOverdue){ 
-        this.ID = 1;
+    public Financial_Employee(int ID, int employeeID, float salary, int hourOverdue){ 
+        this.ID = ID;
         this.employeeID = employeeID;
         this.month = getTodaysDate().getMonth() + 1;
         this.year = getTodaysDate().getYear() + 1900;
@@ -20,10 +21,9 @@ public class Financial_Employee extends Financial{
         this.datePayment = getTodaysDate();
         this.hourOvertime = hourOverdue;
         hourPerWeek = 40;
-        valueTotal = salary;
+        calculateSalary();
+    
     }
-    
-    
      
     public int getID(){
         return ID;
@@ -88,11 +88,11 @@ public class Financial_Employee extends Financial{
     }
     
     //OTHER METHODS
-    private float calculateSalary(){
-        float salPerHour = (salary / hourPerWeek)*(1/2);
+   private void calculateSalary(){
+        float aux = 0.5f;
+        float salPerHour = (salary / hourPerWeek)*aux;
         
         valueTotal = salary + (salPerHour * hourOvertime);
-        return valueTotal;
     }
     
 

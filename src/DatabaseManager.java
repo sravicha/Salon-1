@@ -20,7 +20,7 @@ public class DatabaseManager {
     private final static String ServiceTable           = "SERVICE";
     private final static String ClientTable            = "CLIENT";
     
-    /**
+   /**
      * The purpose of this function is to create the database and initialize the tables.
      * It should only be called once in the lifetime of the entire program during installation.
      */
@@ -91,6 +91,38 @@ public class DatabaseManager {
                 stmt.executeUpdate(sql);
 
                 ///// CREATE TABLE FOR CUSTOMER
+                
+                sql = "CREATE TABLE " + FinancialBuildingTable + 
+                        "(ID             INT PRIMARY KEY NOT NULL," +
+                        " CATEGORY       VARCHAR(15)     NOT NULL," +
+                        " DATE_DUE       DATE            NOT NULL," +
+                        " DATE_PAYMENT   DATE            NOT NULL," +
+                        " VALUE          FLOAT(2)        NOT NULL," +
+                        " VALUE_OVERDUE  FLOAT(2)        NOT NULL," +
+                        " VALUE_TOTAL    FLOAT(2)        NOT NULL)";
+                stmt.executeUpdate(sql);
+                
+                sql = "CREATE TABLE " + FinancialEmployeeTable + 
+                        "(ID             INT PRIMARY KEY NOT NULL," +
+                        " EMPLOYEE_ID    INT NOT NULL," +
+                        " MONTH          INT             NOT NULL," +
+                        " YEAR           INT             NOT NULL," +
+                        " DATE_PAYMENT   DATE            NOT NULL," +
+                        " HOURS_OVERTIME INT             NOT NULL," +
+                        " VALUE_TOTAL    FLOAT(2)        NOT NULL," +
+                        " FOREIGN KEY (EMPLOYEE_ID) REFERENCES " + EmployeeTable + "(ID))";
+                stmt.executeUpdate(sql);
+                
+                sql = "CREATE TABLE " + FinancialSupplierTable + 
+                        "(ID             INT PRIMARY KEY NOT NULL," +
+                        " SUPPLIER_ID    INT             NOT NULL," +
+                        " DATE_DUE       DATE            NOT NULL," +
+                        " DATE_PAYMENT   DATE            NOT NULL," +
+                        " VALUE          FLOAT(2)        NOT NULL," +
+                        " VALUE_OVERDUE  FLOAT(2)        NOT NULL," +
+                        " VALUE_TOTAL    FLOAT(2)        NOT NULL," +
+                        " FOREIGN KEY (SUPPLIER_ID) REFERENCES " + SupplierTable + "(ID))";
+                stmt.executeUpdate(sql);
                 
                 sql = "CREATE TABLE " + FinancialBuildingTable + 
                         "(ID             INT PRIMARY KEY NOT NULL," +
@@ -374,16 +406,36 @@ public class DatabaseManager {
     public static void RemoveClient(Person item) {
         Delete(item, ClientTable);
     }
-    public static void UpdateClient(Service item, Service item2) {
-        RemoveService(item);
-        AddService(item2);
+   public static void UpdateClient(Person item, Person item2) {
+        RemoveClient(item);
+        AddClient(item2);
+    }
+    
+        //SUPPLIER
+    public static ArrayList<Supplier> LookupSupplier(int attr, String field) {
+        return LookupSupplier(Integer.toString(attr), field);
+    }
+    public static ArrayList<Supplier> LookupSupplier(String attribute, String field) {
+       return Get(attribute, field, SupplierTable, new Supplier());    
+    }
+    public static ArrayList<Supplier> AllSupplier() {
+        return LookupSupplier("","");
+    }
+    public static void AddSupplier(Supplier product) {
+        Add(product.toString(), SupplierTable);
+    }
+    public static void RemoveSupplier(Supplier item) {
+        Delete(item, SupplierTable);
+    }
+    public static void UpdateSupplier(Supplier item, Supplier item2) {
+        RemoveSupplier(item);
+        AddSupplier(item2);
     }
     //AUX
-
-    public static float ValuePeriod (String table, String attribute, String attribute2, Date start, Date end){
-        float result = 0;
-        Connection c;
-        Statement stmt;
+        public static int getIDperson(String table, String firstName, String lastName){
+        int result = 0;
+        Connection c = null;
+        Statement stmt = null;
         try {
             Class.forName("org.sqlite.JDBC");
             c = DriverManager.getConnection("jdbc:sqlite:Salon.db");
@@ -392,8 +444,75 @@ public class DatabaseManager {
 
                 stmt = c.createStatement();
                 
-                ResultSet rs = stmt.executeQuery("SELECT "+ attribute2 +" FROM " + table + " WHERE "+ attribute + " >= "
-                        + start.getTime() +" AND " + attribute + " < "+ end.getTime());
+                ResultSet rs = stmt.executeQuery("SELECT ID FROM " + table + " WHERE FIRST_NAME = '" + firstName + "' AND LAST_NAME = '" + lastName + "'");
+                    
+                while (rs.next()) {
+                    result+=rs.getInt("ID");
+                }
+
+
+                rs.close();
+                stmt.close();
+            } catch (SQLException E) {
+                E.printStackTrace();
+            }
+            c.close();
+        } catch (SQLException E) {
+            E.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return result;
+        
+        
+    }
+    public static int getQuantLines(String table){
+        int result = 0;
+        Connection c = null;
+        Statement stmt = null;
+        try {
+            Class.forName("org.sqlite.JDBC");
+            c = DriverManager.getConnection("jdbc:sqlite:Salon.db");
+            c.setAutoCommit(false);
+            try {
+
+                stmt = c.createStatement();
+                
+                ResultSet rs = stmt.executeQuery("SELECT MAX(ID) FROM " + table);
+                    
+                while (rs.next()) {
+                    result+=rs.getFloat("MAX(ID)");
+                }
+
+
+                rs.close();
+                stmt.close();
+            } catch (SQLException E) {
+                E.printStackTrace();
+            }
+            c.close();
+        } catch (SQLException E) {
+            E.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return result;
+        
+        
+    }
+    
+    public static float ValuePeriod (String table, String attribute, String attribute2, Date start, Date end){
+        float result = 0;
+        Connection c = null;
+        Statement stmt = null;
+        try {
+            Class.forName("org.sqlite.JDBC");
+            c = DriverManager.getConnection("jdbc:sqlite:Salon.db");
+            c.setAutoCommit(false);
+            try {
+                stmt = c.createStatement();
+                
+                ResultSet rs = stmt.executeQuery("SELECT "+ attribute2 +" FROM " + table + " WHERE "+ attribute + " >= " + start.getTime() +" AND " + attribute + " < "+ end.getTime());
                     
                 while (rs.next()) {
                     result+=rs.getFloat(attribute2);
@@ -415,10 +534,10 @@ public class DatabaseManager {
     }
     
     public static Date getMinDate (String table, String attribute){
-        Date result = new Date(1,1,2014);
+        Date result=new Date(1,1,2014);
        
-        Connection c;
-        Statement stmt;
+        Connection c = null;
+        Statement stmt = null;
         try {
             Class.forName("org.sqlite.JDBC");
             c = DriverManager.getConnection("jdbc:sqlite:Salon.db");
@@ -489,8 +608,7 @@ public class DatabaseManager {
             try {
 
                 stmt = c.createStatement();
-                ResultSet rs = stmt.executeQuery("SELECT "+ attribute + " FROM " + table + " WHERE " + attribute2 + " = '"
-                        + item +"' AND DATE >= " + start.getTime() +" AND DATE < "+ end.getTime());
+                ResultSet rs = stmt.executeQuery("SELECT "+ attribute + " FROM " + table + " WHERE " + attribute2 + " = '" + item +"' AND DATE >= " + start.getTime() +" AND DATE < "+ end.getTime());
                     
                 while (rs.next()) {
                     result+=rs.getFloat(attribute);
@@ -635,6 +753,19 @@ public class DatabaseManager {
                         tableItems.add(obj);
                     }
                 }
+                else if (obj instanceof Supplier) {
+                    while (rs.next()) {
+                        ((Supplier) obj).setID(rs.getInt("ID"));                        
+                        ((Supplier) obj).setName(rs.getString("NAME"));                        
+                        ((Supplier) obj).setAddress(rs.getString("ADDRESS"));
+                        ((Supplier) obj).setCity(rs.getString("CITY"));
+                        ((Supplier) obj).setState(rs.getString("STATE"));
+                        ((Supplier) obj).setPhone(rs.getString("PHONE"));
+                        ((Supplier) obj).setEmail(rs.getString("EMAIL"));
+                                                
+                        tableItems.add(obj);
+                    }
+                }
                 rs.close();
                 stmt.close();
             } catch (SQLException E) {
@@ -660,6 +791,23 @@ public class DatabaseManager {
         }
         else if (obj instanceof Appointment) {
             ID = Integer.toString(((Appointment) obj).getId());
+        else if (obj instanceof Financial_Building) {
+            ID = Integer.toString(((Financial_Building) obj).getID());
+        }
+        else if (obj instanceof Financial_Employee) {
+            ID = Integer.toString(((Financial_Employee) obj).getID());
+        }
+        else if (obj instanceof Financial_Supplier) {
+            ID = Integer.toString(((Financial_Supplier) obj).getID());
+        }
+        else if (obj instanceof Financial_Sales) {
+            ID = Integer.toString(((Financial_Sales) obj).getID());
+        }
+        else if (obj instanceof Supplier) {
+            ID = Integer.toString(((Supplier) obj).getID());
+        }
+        else if (obj instanceof Person) {
+            ID = Integer.toString(((Person) obj).getId());
         }
         if (ID.isEmpty()) return;
         Connection c;

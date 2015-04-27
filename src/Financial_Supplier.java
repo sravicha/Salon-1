@@ -1,6 +1,7 @@
 /**
  * @author Felipe
  */
+import java.text.*;
 import java.util.*;
 
 
@@ -12,8 +13,8 @@ public class Financial_Supplier extends Financial {
     
     //CONSTRUCTOR
     public Financial_Supplier(){}
-    public Financial_Supplier(int supplierID, Date dateDue, float value, int percentage) {
-        this.ID = 1;
+    public Financial_Supplier(int ID, int supplierID, Date dateDue, float value, int percentage) {
+        this.ID = ID;
         this.value = value;
         this.valueOverdue = 0;
         this.valueTotal = this.value;
