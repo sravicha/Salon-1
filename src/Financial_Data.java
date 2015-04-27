@@ -1,8 +1,3 @@
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Date;
 /**
@@ -252,8 +247,7 @@ public class Financial_Data extends Financial{
     
     private Date getStartMonthDay(){
         Date a = getTodaysDate();
-        Date start = makeDate(1, a.getMonth()+1, a.getYear()+1900);
-        return start;
+        return makeDate(1, a.getMonth()+1, a.getYear()+1900);
     }
     
     private Date getLastMonthDay(){

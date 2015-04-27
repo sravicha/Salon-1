@@ -1,7 +1,6 @@
 /**
  * @author Felipe
  */
-import java.text.*;
 import java.util.*;
 
 public class Financial_Employee extends Financial{

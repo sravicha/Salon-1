@@ -434,8 +434,8 @@ public class DatabaseManager {
     //AUX
         public static int getIDperson(String table, String firstName, String lastName){
         int result = 0;
-        Connection c = null;
-        Statement stmt = null;
+        Connection c;
+        Statement stmt;
         try {
             Class.forName("org.sqlite.JDBC");
             c = DriverManager.getConnection("jdbc:sqlite:Salon.db");
@@ -468,8 +468,8 @@ public class DatabaseManager {
     }
     public static int getQuantLines(String table){
         int result = 0;
-        Connection c = null;
-        Statement stmt = null;
+        Connection c;
+        Statement stmt;
         try {
             Class.forName("org.sqlite.JDBC");
             c = DriverManager.getConnection("jdbc:sqlite:Salon.db");
@@ -503,8 +503,8 @@ public class DatabaseManager {
     
     public static float ValuePeriod (String table, String attribute, String attribute2, Date start, Date end){
         float result = 0;
-        Connection c = null;
-        Statement stmt = null;
+        Connection c;
+        Statement stmt;
         try {
             Class.forName("org.sqlite.JDBC");
             c = DriverManager.getConnection("jdbc:sqlite:Salon.db");
@@ -536,8 +536,8 @@ public class DatabaseManager {
     public static Date getMinDate (String table, String attribute){
         Date result=new Date(1,1,2014);
        
-        Connection c = null;
-        Statement stmt = null;
+        Connection c;
+        Statement stmt;
         try {
             Class.forName("org.sqlite.JDBC");
             c = DriverManager.getConnection("jdbc:sqlite:Salon.db");
@@ -791,6 +791,7 @@ public class DatabaseManager {
         }
         else if (obj instanceof Appointment) {
             ID = Integer.toString(((Appointment) obj).getId());
+        }
         else if (obj instanceof Financial_Building) {
             ID = Integer.toString(((Financial_Building) obj).getID());
         }

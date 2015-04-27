@@ -1,9 +1,6 @@
 
 //package softeng;
 import java.io.File;
-import java.util.*;
-import javax.swing.JFrame;
-import java.sql.*;
 import java.util.Date;
 /**
  *
@@ -25,18 +22,17 @@ public class SoftEng {
         //(int uniqueID, String First, String Last, String Add, String Cit, String Sta, String Pho, String Mail)
         Person client = new Person (1, "Felipe", "Oliveira", "St. Grand Blvd 300", "St. Louis", "MO", "3145377219", "dasilvaoliveira@slu.edu");
         DatabaseManager.AddClient(client);
-        
-        //public Service(int ID, String name, String description, float value)
-        Service serv = new Service(1, "test1", "this a description", 50);
+        //public Service(String name, String description, float value)
+        Service serv = new Service("test1", "this a description", 50);
         DatabaseManager.AddService(serv);
         
-        Financial_Building testBuilding1 = new Financial_Building(1, "cat1", makeDate(23, 04, 2015), 100, 15);    
+        Financial_Building testBuilding1 = new Financial_Building(1, "cat1", makeDate(23, 4, 2015), 100, 15);
         DatabaseManager.AddFinancialBuilding(testBuilding1);
         
-        Financial_Building testBuilding2 = new Financial_Building(2, "cat2", makeDate(23, 04, 2015), 200, 15);
+        Financial_Building testBuilding2 = new Financial_Building(2, "cat2", makeDate(23, 4, 2015), 200, 15);
         DatabaseManager.AddFinancialBuilding(testBuilding2);
        
-        Financial_Building testBuilding3 = new Financial_Building(3, "cat3aaaaaa", makeDate(23, 04, 2015), 300, 15);
+        Financial_Building testBuilding3 = new Financial_Building(3, "cat3aaaaaa", makeDate(23, 4, 2015), 300, 15);
         DatabaseManager.AddFinancialBuilding(testBuilding3);
        
         Financial_Sales a = new Financial_Sales(1, 1, 1, 1, 10, "CREDIT CARD");
@@ -82,7 +78,7 @@ public class SoftEng {
         System.out.println(teste.getPercentageMonthDebitIncome());
         System.out.println(teste.getPercentageMonthCashIncome());
         
-        teste.addBuilding("cat1", makeDate(23, 04, 2015),  10, 10);
+        teste.addBuilding("cat1", makeDate(23, 4, 2015),  10, 10);
 
         teste.removeBuilding(4);
         
@@ -90,7 +86,7 @@ public class SoftEng {
         
         teste.addEmployee("matt", "meyer", 8);
         
-        teste.addSupplier("fornecedor", makeDate(27,04, 2015), 100, 0);
+        teste.addSupplier("fornecedor", makeDate(27, 4, 2015), 100, 0);
         
         //addSale(String employeeFirstName, String employeeLastName, String clientFirstName, String clientLastName, String serviceName, String paymentType)
         teste.addSales("emily", "hunt", "Felipe", "Oliveira", "test1", "CASH");
@@ -100,8 +96,7 @@ public class SoftEng {
     public static Date makeDate (int day, int month, int year){ //dd-mm-yyyy
         int auxYear;
         auxYear = year - 2000 + 100;
-        Date a = new Date(auxYear, month - 1, day);
-        return a;
+        return new Date(auxYear, month - 1, day);
         
     }
     

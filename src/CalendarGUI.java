@@ -70,15 +70,15 @@ public class CalendarGUI
 //		String todayTime = todayArray [ 3 ];
 //		String todayTimeZone = todayArray [ 4 ];
 		String todayYear = todayArray [ 5 ];
-		String todayDay = new String ( );
+		String todayDay = "";
 		for ( int i = 0; i < 7; i++ ) 
 		{
 			if ( daysAbbreviated [ i ].equals ( todayDayAbbreviated ) ) 
 			{
 				todayDay = days [ i ];
-			};
-		};
-		String todayMonth = new String ( );
+			}
+		}
+		String todayMonth = "";
 		for ( int i = 0; i < 12; i++ ) 
 		{
 			if ( monthsAbbreviated [ i ].equals ( todayMonthAbbreviated ) ) 
