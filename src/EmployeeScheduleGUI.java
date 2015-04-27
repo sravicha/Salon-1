@@ -1,16 +1,13 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.*;
 import javax.swing.border.*;
-//import java.awt.*;
-//import java.util.Date;
-//import java.util.Calendar;
 
-public class CalendarGUI
+public class EmployeeScheduleGUI
 {
-	public CalendarGUI ( int newDefaultClose )
+	public EmployeeScheduleGUI ( int newEmployeeID, int newDefaultClose )
 	{
+		employeeID = newEmployeeID;
 		defaultClose = newDefaultClose;
 
 		// Window
@@ -97,7 +94,7 @@ public class CalendarGUI
 							timeManager.addWithConstraints ( timeTable, 0, 1, 1, 2, 0, 1 );
 		// ... ... ... ... Days Table
 							String [ ] daysTableColumnNames = { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" };
-							// This [ ] [ ] will eventually hold items of type Appointment, which is why it is separate from the String [ ] [ ] used for timeTable
+							// This [ ] [ ] will eventually hold items of type EmployeeShift associated with employeeID, which is why it is separate from the String [ ] [ ] used for timeTable
 							String [ ] [ ] daysTableData = 
 								{ 
 									{ " ", " ", " ", " ", " ", " ", " " }, 
@@ -134,44 +131,42 @@ public class CalendarGUI
 						weekManager.addWithConstraints ( daysPanel, 1, 0, 4, 1, 1, 0 );
 		// ... ... Footer
 		// ... ... ... Footer Components
-		// ... ... ... ... Create Appointment Button
-							JButton createAppointmentButton = new JButton ( "Create Appointment" );
-							createAppointmentButton.addActionListener 
+		// ... ... ... ... Create Employee Shift Button
+							JButton createEmployeeShiftButton = new JButton ( "Create Employee Shift" );
+							createEmployeeShiftButton.addActionListener 
 							( 
 								new ActionListener ( )
 								{	
 									@Override
 									public void actionPerformed(ActionEvent event) {
 										@SuppressWarnings("unused")
-										CreateAppointmentGUI createAppointment = new CreateAppointmentGUI ( JFrame.EXIT_ON_CLOSE );
-										windowFrame.setVisible ( false );
+										CreateEmployeeShiftGUI createEmployeeShiftGUI = new CreateEmployeeShiftGUI ( JFrame.EXIT_ON_CLOSE );
 									}
 								}
 							);
-		// ... ... ... ... View Employee Schedule Button
-							JButton viewEmployeeScheduleButton = new JButton ( "View Employee Schedule" );
-							viewEmployeeScheduleButton.addActionListener 
+		// ... ... ... ... Remove Employee Shift Button
+							JButton removeEmployeeShiftButton = new JButton ( "Remove Employee Shift" );
+							removeEmployeeShiftButton.addActionListener 
 							( 
 								new ActionListener ( )
 								{	
 									@Override
 									public void actionPerformed(ActionEvent event) {
-										@SuppressWarnings("unused")
-										EnterEmployeeIDGUI enterEmployeeIDGUI = new EnterEmployeeIDGUI ( JFrame.EXIT_ON_CLOSE );
-										windowFrame.setVisible ( false );
+										// RemoveEmployeeShiftGUI constructor call here
+//										windowFrame.setVisible ( false );
 									}
 								}
 							);
-		// ... ... ... ... Return Home Button
-							JButton returnHomeButton = new JButton ( "Return Home" );
-							returnHomeButton.addActionListener 
+		// ... ... ... ... Return Button
+							JButton returnButton = new JButton ( "Return" );
+							returnButton.addActionListener 
 							( 
 								new ActionListener ( )
 								{	
 									@Override
 									public void actionPerformed(ActionEvent event) {
 										@SuppressWarnings("unused")
-										HomeGUI homeGUI = new HomeGUI ( JFrame.EXIT_ON_CLOSE );
+										CalendarGUI calendarGUI = new CalendarGUI ( JFrame.EXIT_ON_CLOSE );
 										windowFrame.setVisible ( false );
 									}
 								}
@@ -180,9 +175,9 @@ public class CalendarGUI
 							JPanel footerPanel = new JPanel ( );
 							footerPanel.setBorder ( BorderFactory.createEtchedBorder ( EtchedBorder.LOWERED ) );
 							GridBagLayoutManager footerManager = new GridBagLayoutManager ( footerPanel );
-							footerManager.addWithConstraints ( createAppointmentButton, 0, 0, 1, 1, 0, 0 );
-							footerManager.addWithConstraints ( viewEmployeeScheduleButton, 2, 0, 1, 1, 0, 0 );
-							footerManager.addWithConstraints ( returnHomeButton, 3, 0, 1, 1, 0, 0 );
+							footerManager.addWithConstraints ( createEmployeeShiftButton, 0, 0, 1, 1, 0, 0 );
+							footerManager.addWithConstraints ( removeEmployeeShiftButton, 1, 0, 1, 1, 0, 0 );
+							footerManager.addWithConstraints ( returnButton, 3, 0, 1, 1, 0, 0 );
 		// ... Window Frame
 				GridBagLayoutManager windowManager = new GridBagLayoutManager ( windowFrame );
 				windowManager.addWithConstraints ( titlePanel, windowFrame, 0, 0, 1, 1, 0, 0 );
@@ -194,10 +189,6 @@ public class CalendarGUI
 				windowFrame.setLocationRelativeTo ( null );
 	}
 
-//	private String [ ] daysTableColumnNames ( String date, String month, String year )
-//	{
-//		String [ ] daysTableColumnNames = { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" };
-//	}
-
+	public static int employeeID;
 	public static int defaultClose;
 }

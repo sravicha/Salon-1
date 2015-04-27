@@ -65,6 +65,11 @@ public class GridBagLayoutManager
 		addToFrame.add ( addComponent, constraints );
 	}
 
+	public void remove ( JComponent removeComponent, JFrame removeFromFrame )
+	{
+		removeFromFrame.remove ( removeComponent );
+	}
+
 
 	public static JComponent component;
 	public static JFrame frame;
