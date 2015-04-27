@@ -92,39 +92,7 @@ public class DatabaseManager {
 
                 ///// CREATE TABLE FOR CUSTOMER
                 
-                sql = "CREATE TABLE " + FinancialBuildingTable + 
-                        "(ID             INT PRIMARY KEY NOT NULL," +
-                        " CATEGORY       VARCHAR(15)     NOT NULL," +
-                        " DATE_DUE       DATE            NOT NULL," +
-                        " DATE_PAYMENT   DATE            NOT NULL," +
-                        " VALUE          FLOAT(2)        NOT NULL," +
-                        " VALUE_OVERDUE  FLOAT(2)        NOT NULL," +
-                        " VALUE_TOTAL    FLOAT(2)        NOT NULL)";
-                stmt.executeUpdate(sql);
-                
-                sql = "CREATE TABLE " + FinancialEmployeeTable + 
-                        "(ID             INT PRIMARY KEY NOT NULL," +
-                        " EMPLOYEE_ID    INT NOT NULL," +
-                        " MONTH          INT             NOT NULL," +
-                        " YEAR           INT             NOT NULL," +
-                        " DATE_PAYMENT   DATE            NOT NULL," +
-                        " HOURS_OVERTIME INT             NOT NULL," +
-                        " VALUE_TOTAL    FLOAT(2)        NOT NULL," +
-                        " FOREIGN KEY (EMPLOYEE_ID) REFERENCES " + EmployeeTable + "(ID))";
-                stmt.executeUpdate(sql);
-                
-                sql = "CREATE TABLE " + FinancialSupplierTable + 
-                        "(ID             INT PRIMARY KEY NOT NULL," +
-                        " SUPPLIER_ID    INT             NOT NULL," +
-                        " DATE_DUE       DATE            NOT NULL," +
-                        " DATE_PAYMENT   DATE            NOT NULL," +
-                        " VALUE          FLOAT(2)        NOT NULL," +
-                        " VALUE_OVERDUE  FLOAT(2)        NOT NULL," +
-                        " VALUE_TOTAL    FLOAT(2)        NOT NULL," +
-                        " FOREIGN KEY (SUPPLIER_ID) REFERENCES " + SupplierTable + "(ID))";
-                stmt.executeUpdate(sql);
-                
-                sql = "CREATE TABLE " + FinancialBuildingTable + 
+                sql = "CREATE TABLE " + FinancialBuildingTable +
                         "(ID             INT PRIMARY KEY NOT NULL," +
                         " CATEGORY       VARCHAR(15)     NOT NULL," +
                         " DATE_DUE       DATE            NOT NULL," +

@@ -1,30 +1,25 @@
 <project>
 
-    <path id="databaseDriver">
-        <pathelement location="lib/sqlite-jdbc-3.8.7.jar"/>
-    </path>
-
     <target name="clean">
         <delete dir="out"/>
     </target>
 
     <target name="compile" depends="clean">
         <mkdir dir="out/classes"/>
-        <javac srcdir="src" destdir="out/classes">
-            <classpath refid="databaseDriver"/>
-        </javac>
+        <javac srcdir="src" destdir="out/classes"/>
     </target>
 
     <target name="make" depends="compile">
         <mkdir dir="out/jar"/>
         <jar destfile="out/jar/Salon.jar" basedir="out/classes">
+            <zipgroupfileset dir="lib" includes="sqlite-jdbc-3.8.7.jar"/>
             <manifest>
-                <attribute name="Main-Class" value="HomeGUITester"/>
+                <attribute name="Main-Class" value="HomeGUI"/>
             </manifest>
         </jar>
     </target>
 
-    <target name="run" depends="make">
+    <target name="run">
         <java jar="out/jar/Salon.jar" fork="true"/>
     </target>
 
