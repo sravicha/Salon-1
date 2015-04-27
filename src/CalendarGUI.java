@@ -199,5 +199,5 @@ public class CalendarGUI
 //		String [ ] daysTableColumnNames = { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" };
 //	}
 
-	public static int defaultClose;
+	private static int defaultClose;
 }

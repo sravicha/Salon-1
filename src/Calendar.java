@@ -5,7 +5,7 @@ public class Calendar
 {
 	public Calendar ( int newDefaultClose )
 	{
-		defaultClose = newDefaultClose;
+		int defaultClose = newDefaultClose;
 
 		// Button Listener
 		JButtonListener buttonListener = new JButtonListener ( );
@@ -333,7 +333,7 @@ public class Calendar
 							footerManager.addWithConstraints ( returnHomeButton, 3, 0, 1, 1, 0, 0 );
 		// ... Window Frame
 				JFrame windowFrame = new JFrame ( );
-				windowFrame.setDefaultCloseOperation ( defaultClose );
+				windowFrame.setDefaultCloseOperation (defaultClose);
 				GridBagLayoutManager windowManager = new GridBagLayoutManager ( windowFrame );
 				windowManager.addWithConstraints ( titlePanel, windowFrame, 0, 0, 1, 1, 0, 0 );
 				windowManager.addWithConstraints ( headerPanel, windowFrame, 0, 1, 1, 1, 0, 0 );
@@ -343,5 +343,4 @@ public class Calendar
 				windowFrame.setVisible ( true );
 				windowFrame.setLocationRelativeTo ( null );
 	}
-	private static int defaultClose;
 }

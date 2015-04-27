@@ -189,6 +189,6 @@ public class EmployeeScheduleGUI
 				windowFrame.setLocationRelativeTo ( null );
 	}
 
-	public static int employeeID;
-	public static int defaultClose;
+	private static int employeeID;
+	private static int defaultClose;
 }

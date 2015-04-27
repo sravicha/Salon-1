@@ -156,7 +156,7 @@ public class Register
 		windowFrame.setVisible ( true );
 		windowFrame.setLocationRelativeTo ( null );
 	}
-	public static int defaultClose;
+	private static int defaultClose;
 
 	private JButton buttonFunction (String name, ActionListener buttonListener) {
 		JButton button = new JButton(name);

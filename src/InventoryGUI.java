@@ -96,5 +96,5 @@ public class InventoryGUI
 				windowFrame.setLocationRelativeTo ( null );
 	}
 
-	public static int defaultClose;
+	private static int defaultClose;
 }

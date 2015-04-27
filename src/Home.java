@@ -148,12 +148,12 @@ public class Home extends JFrame {
 	}
 
 	private JTextArea titleField;
-	public static String menuTitle;
-	public static String [] keyLabels;
-	public static int keyPanelHeight;
-	public static int keyPanelWidth;
-	public static int titleFieldHeight;
-	public static int defaultClose;
+	private static String menuTitle;
+	private static String [] keyLabels;
+	private static int keyPanelHeight;
+	private static int keyPanelWidth;
+	private static int titleFieldHeight;
+	private static int defaultClose;
 	private static final long serialVersionUID = 1L;
 
 }

@@ -17,8 +17,7 @@ public class Financial_Data extends Financial{
     //SCREEN 3
     private float incomeCreditTotalPeriod, incomeDebitTotalPeriod, incomeCashTotalPeriod;
     private float periodIncome;
-    private float periodPaymentType[] = new float[3];
-    
+
     Financial_Data(){
         Date a, b;
         a = getStartMonthDay();
@@ -43,6 +42,7 @@ public class Financial_Data extends Financial{
         this.financialEmployeeTotalPeriod = 0;
         this.financialSupplierTotalPeriod = 0;
 
+        float[] periodPaymentType = new float[3];
         periodPaymentType[0]= DatabaseManager.getValueCategory("FINANCIAL_SALES", "VALUE", "PAYMENT_TYPE", "CREDIT CARD", a, b);
         periodPaymentType[1]= DatabaseManager.getValueCategory("FINANCIAL_SALES", "VALUE", "PAYMENT_TYPE", "DEBIT CARD", a, b);
         periodPaymentType[2]= DatabaseManager.getValueCategory("FINANCIAL_SALES", "VALUE", "PAYMENT_TYPE", "CASH", a, b);

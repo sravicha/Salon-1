@@ -11,9 +11,9 @@ public class RegisterGUI
 		defaultClose = newDefaultClose;
 
 		// Window
-			final JFrame windowFrame = new JFrame ( );
+			JFrame windowFrame = new JFrame ( );
 			windowFrame.setDefaultCloseOperation ( defaultClose );
-			final GridBagLayoutManager windowManager = new GridBagLayoutManager ( windowFrame );
+			GridBagLayoutManager windowManager = new GridBagLayoutManager ( windowFrame );
 		// ... Window Components
 		// ... ... Title
 		// ... ... ... Title Text Area
@@ -25,7 +25,7 @@ public class RegisterGUI
 						GridBagLayoutManager titleManager = new GridBagLayoutManager ( titlePanel );
 						titleManager.addWithConstraints ( titleTextArea, 0, 0, 6, 1, 0, 0 );
 		// ... ... Inventory
-					final JPanel inventoryPanel = new JPanel ( );
+					JPanel inventoryPanel = new JPanel ( );
 					inventoryPanel.setBorder ( BorderFactory.createEtchedBorder ( EtchedBorder.LOWERED ) );
 					GridBagLayoutManager inventoryManager = new GridBagLayoutManager ( inventoryPanel );
 		// ... ... ... Services
@@ -39,7 +39,7 @@ public class RegisterGUI
 									public void actionPerformed ( ActionEvent event )
 									{
 										windowManager.remove ( inventoryPanel, windowFrame );
-										final JPanel haircutOptionsPanel = new JPanel ( );
+										JPanel haircutOptionsPanel = new JPanel ( );
 										haircutOptionsPanel.setBorder ( BorderFactory.createEtchedBorder ( EtchedBorder.LOWERED ) );
 										GridBagLayoutManager haircutOptionsManager = new GridBagLayoutManager ( haircutOptionsPanel );
 		// ... ... ... ... ... ... ... Haircut Options
@@ -122,7 +122,7 @@ public class RegisterGUI
 									public void actionPerformed ( ActionEvent event )
 									{
 										windowManager.remove ( inventoryPanel, windowFrame );
-										final JPanel styleOptionsPanel = new JPanel ( );
+										JPanel styleOptionsPanel = new JPanel ( );
 										styleOptionsPanel.setBorder ( BorderFactory.createEtchedBorder ( EtchedBorder.LOWERED ) );
 										GridBagLayoutManager styleOptionsManager = new GridBagLayoutManager ( styleOptionsPanel );
 		// ... ... ... ... ... ... ... Style Options
@@ -186,7 +186,7 @@ public class RegisterGUI
 													}
 												}
 											);
-		// ... ... ... ... ... ... ... Haircut Options Panel
+		// ... ... ... ... ... ... ... Style Options Panel
 											styleOptionsManager.addWithConstraints ( longStyleButton, 2, 0, 4, 2, 0, 1 );
 											styleOptionsManager.addWithConstraints ( mediumStyleButton, 6, 0, 4, 2, 0, 1 );
 											styleOptionsManager.addWithConstraints ( shortStyleButton, 10, 0, 4, 2, 0, 1 );
@@ -205,75 +205,75 @@ public class RegisterGUI
 									public void actionPerformed ( ActionEvent event )
 									{
 										windowManager.remove ( inventoryPanel, windowFrame );
-										final JPanel colorOptionsPanel = new JPanel ( );
+										JPanel colorOptionsPanel = new JPanel ( );
 										colorOptionsPanel.setBorder ( BorderFactory.createEtchedBorder ( EtchedBorder.LOWERED ) );
 										GridBagLayoutManager colorOptionsManager = new GridBagLayoutManager ( colorOptionsPanel );
 		// ... ... ... ... ... ... ... Color Options
-		// ... ... ... ... ... ... ... ... Long Color Button
-											JButton longColorButton = new JButton ( "Long" );
-											longColorButton.addActionListener 
+		// ... ... ... ... ... ... ... ... Solid Color Button
+											JButton solidColorButton = new JButton ( "Solid" );
+											solidColorButton.addActionListener 
 											( 
 												new ActionListener ( )
 												{	
 													@Override
 													public void actionPerformed ( ActionEvent event )
 													{
-														// Register should add a long color item to transaction
+														// Register should add a solid color item to transaction
 														windowManager.remove ( colorOptionsPanel, windowFrame );
 														windowManager.addWithConstraints ( inventoryPanel, windowFrame, 8, 5, 16, 8, 0, 1 );
 													}
 												}
 											);
-		// ... ... ... ... ... ... ... ... Medium Color Button
-											JButton mediumColorButton = new JButton ( "Medium" );
-											mediumColorButton.addActionListener 
+		// ... ... ... ... ... ... ... ... Ombre Color Button
+											JButton ombreColorButton = new JButton ( "Ombre" );
+											ombreColorButton.addActionListener 
 											( 
 												new ActionListener ( )
 												{	
 													@Override
 													public void actionPerformed ( ActionEvent event )
 													{
-														// Register should add a medium color item to transaction
+														// Register should add a ombre color item to transaction
 														windowManager.remove ( colorOptionsPanel, windowFrame );
 														windowManager.addWithConstraints ( inventoryPanel, windowFrame, 8, 5, 16, 8, 0, 1 );
 													}
 												}
 											);
-		// ... ... ... ... ... ... ... ... Short Color Button
-											JButton shortColorButton = new JButton ( "Short" );
-											shortColorButton.addActionListener 
+		// ... ... ... ... ... ... ... ... Highlights Color Button
+											JButton highlightsColorButton = new JButton ( "Highlights" );
+											highlightsColorButton.addActionListener 
 											( 
 												new ActionListener ( )
 												{	
 													@Override
 													public void actionPerformed ( ActionEvent event )
 													{
-														// Register should add a short color item to transaction
+														// Register should add a highlights color item to transaction
 														windowManager.remove ( colorOptionsPanel, windowFrame );
 														windowManager.addWithConstraints ( inventoryPanel, windowFrame, 8, 5, 16, 8, 0, 1 );
 													}
 												}
 											);
-		// ... ... ... ... ... ... ... ... Kids Color Button
-											JButton kidsColorButton = new JButton ( "Kids" );
-											kidsColorButton.addActionListener 
+		// ... ... ... ... ... ... ... ... Fashion Color Button
+											JButton fashionColorButton = new JButton ( "Fashion" );
+											fashionColorButton.addActionListener 
 											( 
 												new ActionListener ( )
 												{	
 													@Override
 													public void actionPerformed ( ActionEvent event )
 													{
-														// Register should add a kids color item to transaction
+														// Register should add a fashion color item to transaction
 														windowManager.remove ( colorOptionsPanel, windowFrame );
 														windowManager.addWithConstraints ( inventoryPanel, windowFrame, 8, 5, 16, 8, 0, 1 );
 													}
 												}
 											);
-		// ... ... ... ... ... ... ... Haircut Options Panel
-											colorOptionsManager.addWithConstraints ( longColorButton, 2, 0, 4, 2, 0, 1 );
-											colorOptionsManager.addWithConstraints ( mediumColorButton, 6, 0, 4, 2, 0, 1 );
-											colorOptionsManager.addWithConstraints ( shortColorButton, 10, 0, 4, 2, 0, 1 );
-											colorOptionsManager.addWithConstraints ( kidsColorButton, 14, 0, 4, 2, 0, 1 );
+		// ... ... ... ... ... ... ... Color Options Panel
+											colorOptionsManager.addWithConstraints ( solidColorButton, 2, 0, 4, 2, 0, 1 );
+											colorOptionsManager.addWithConstraints ( ombreColorButton, 6, 0, 4, 2, 0, 1 );
+											colorOptionsManager.addWithConstraints ( highlightsColorButton, 10, 0, 4, 2, 0, 1 );
+											colorOptionsManager.addWithConstraints ( fashionColorButton, 14, 0, 4, 2, 0, 1 );
 											windowManager.addWithConstraints ( colorOptionsPanel, windowFrame, 8, 5, 16, 8, 0, 1 );
 									}
 								}
@@ -288,7 +288,7 @@ public class RegisterGUI
 										public void actionPerformed ( ActionEvent event )
 										{
 											windowManager.remove ( inventoryPanel, windowFrame );
-											final JPanel permOptionsPanel = new JPanel ( );
+											JPanel permOptionsPanel = new JPanel ( );
 											permOptionsPanel.setBorder ( BorderFactory.createEtchedBorder ( EtchedBorder.LOWERED ) );
 											GridBagLayoutManager permOptionsManager = new GridBagLayoutManager ( permOptionsPanel );
 			// ... ... ... ... ... ... ... Perm Options
@@ -352,7 +352,7 @@ public class RegisterGUI
 														}
 													}
 												);
-			// ... ... ... ... ... ... ... Haircut Options Panel
+			// ... ... ... ... ... ... ... Perm Options Panel
 												permOptionsManager.addWithConstraints ( longPermButton, 2, 0, 4, 2, 0, 1 );
 												permOptionsManager.addWithConstraints ( mediumPermButton, 6, 0, 4, 2, 0, 1 );
 												permOptionsManager.addWithConstraints ( shortPermButton, 10, 0, 4, 2, 0, 1 );
@@ -371,7 +371,7 @@ public class RegisterGUI
 									public void actionPerformed ( ActionEvent event )
 									{
 										windowManager.remove ( inventoryPanel, windowFrame );
-										final JPanel shampooOptionsPanel = new JPanel ( );
+										JPanel shampooOptionsPanel = new JPanel ( );
 										shampooOptionsPanel.setBorder ( BorderFactory.createEtchedBorder ( EtchedBorder.LOWERED ) );
 										GridBagLayoutManager shampooOptionsManager = new GridBagLayoutManager ( shampooOptionsPanel );
 		// ... ... ... ... ... ... ... Shampoo Options
@@ -435,7 +435,7 @@ public class RegisterGUI
 													}
 												}
 											);
-		// ... ... ... ... ... ... ... Haircut Options Panel
+		// ... ... ... ... ... ... ... Shampoo Options Panel
 											shampooOptionsManager.addWithConstraints ( longShampooButton, 2, 0, 4, 2, 0, 1 );
 											shampooOptionsManager.addWithConstraints ( mediumShampooButton, 6, 0, 4, 2, 0, 1 );
 											shampooOptionsManager.addWithConstraints ( shortShampooButton, 10, 0, 4, 2, 0, 1 );
@@ -454,7 +454,7 @@ public class RegisterGUI
 									public void actionPerformed ( ActionEvent event )
 									{
 										windowManager.remove ( inventoryPanel, windowFrame );
-										final JPanel conditionOptionsPanel = new JPanel ( );
+										JPanel conditionOptionsPanel = new JPanel ( );
 										conditionOptionsPanel.setBorder ( BorderFactory.createEtchedBorder ( EtchedBorder.LOWERED ) );
 										GridBagLayoutManager conditionOptionsManager = new GridBagLayoutManager ( conditionOptionsPanel );
 		// ... ... ... ... ... ... ... Condition Options
@@ -518,7 +518,7 @@ public class RegisterGUI
 													}
 												}
 											);
-		// ... ... ... ... ... ... ... Haircut Options Panel
+		// ... ... ... ... ... ... ... Condition Options Panel
 											conditionOptionsManager.addWithConstraints ( longConditionButton, 2, 0, 4, 2, 0, 1 );
 											conditionOptionsManager.addWithConstraints ( mediumConditionButton, 6, 0, 4, 2, 0, 1 );
 											conditionOptionsManager.addWithConstraints ( shortConditionButton, 10, 0, 4, 2, 0, 1 );
@@ -534,9 +534,79 @@ public class RegisterGUI
 								new ActionListener ( )
 								{	
 									@Override
-									public void actionPerformed(ActionEvent event) {
-										// DeepConditionOptionsGUI constructor call here
-//										windowFrame.setVisible ( false );
+									public void actionPerformed ( ActionEvent event )
+									{
+										windowManager.remove ( inventoryPanel, windowFrame );
+										JPanel deepConditionOptionsPanel = new JPanel ( );
+										deepConditionOptionsPanel.setBorder ( BorderFactory.createEtchedBorder ( EtchedBorder.LOWERED ) );
+										GridBagLayoutManager deepConditionOptionsManager = new GridBagLayoutManager ( deepConditionOptionsPanel );
+		// ... ... ... ... ... ... ... Deep Condition Options
+		// ... ... ... ... ... ... ... ... Long Deep Condition Button
+											JButton longDeepConditionButton = new JButton ( "Long" );
+											longDeepConditionButton.addActionListener 
+											( 
+												new ActionListener ( )
+												{	
+													@Override
+													public void actionPerformed ( ActionEvent event )
+													{
+														// Register should add a long deep condition item to transaction
+														windowManager.remove ( deepConditionOptionsPanel, windowFrame );
+														windowManager.addWithConstraints ( inventoryPanel, windowFrame, 8, 5, 16, 8, 0, 1 );
+													}
+												}
+											);
+		// ... ... ... ... ... ... ... ... Medium Deep Condition Button
+											JButton mediumDeepConditionButton = new JButton ( "Medium" );
+											mediumDeepConditionButton.addActionListener 
+											( 
+												new ActionListener ( )
+												{	
+													@Override
+													public void actionPerformed ( ActionEvent event )
+													{
+														// Register should add a medium deep condition item to transaction
+														windowManager.remove ( deepConditionOptionsPanel, windowFrame );
+														windowManager.addWithConstraints ( inventoryPanel, windowFrame, 8, 5, 16, 8, 0, 1 );
+													}
+												}
+											);
+		// ... ... ... ... ... ... ... ... Short Deep Condition Button
+											JButton shortDeepConditionButton = new JButton ( "Short" );
+											shortDeepConditionButton.addActionListener 
+											( 
+												new ActionListener ( )
+												{	
+													@Override
+													public void actionPerformed ( ActionEvent event )
+													{
+														// Register should add a short deep condition item to transaction
+														windowManager.remove ( deepConditionOptionsPanel, windowFrame );
+														windowManager.addWithConstraints ( inventoryPanel, windowFrame, 8, 5, 16, 8, 0, 1 );
+													}
+												}
+											);
+		// ... ... ... ... ... ... ... ... Kids Deep Condition Button
+											JButton kidsDeepConditionButton = new JButton ( "Kids" );
+											kidsDeepConditionButton.addActionListener 
+											( 
+												new ActionListener ( )
+												{	
+													@Override
+													public void actionPerformed ( ActionEvent event )
+													{
+														// Register should add a kids deep condition item to transaction
+														windowManager.remove ( deepConditionOptionsPanel, windowFrame );
+														windowManager.addWithConstraints ( inventoryPanel, windowFrame, 8, 5, 16, 8, 0, 1 );
+													}
+												}
+											);
+		// ... ... ... ... ... ... ... Deep Condition Options Panel
+											deepConditionOptionsManager.addWithConstraints ( longDeepConditionButton, 2, 0, 4, 2, 0, 1 );
+											deepConditionOptionsManager.addWithConstraints ( mediumDeepConditionButton, 6, 0, 4, 2, 0, 1 );
+											deepConditionOptionsManager.addWithConstraints ( shortDeepConditionButton, 10, 0, 4, 2, 0, 1 );
+											deepConditionOptionsManager.addWithConstraints ( kidsDeepConditionButton, 14, 0, 4, 2, 0, 1 );
+											windowManager.addWithConstraints ( deepConditionOptionsPanel, windowFrame, 8, 5, 16, 8, 0, 1 );
 									}
 								}
 							);
@@ -547,9 +617,31 @@ public class RegisterGUI
 								new ActionListener ( )
 								{	
 									@Override
-									public void actionPerformed(ActionEvent event) {
-										// OtherServicesOptionsGUI constructor call here
-//										windowFrame.setVisible ( false );
+									public void actionPerformed ( ActionEvent event )
+									{
+										windowManager.remove ( inventoryPanel, windowFrame );
+										JPanel otherServicesOptionsPanel = new JPanel ( );
+										otherServicesOptionsPanel.setBorder ( BorderFactory.createEtchedBorder ( EtchedBorder.LOWERED ) );
+										GridBagLayoutManager otherServicesOptionsManager = new GridBagLayoutManager ( otherServicesOptionsPanel );
+		// ... ... ... ... ... ... ... Other Services Options
+		// ... ... ... ... ... ... ... ... Other Services Trim Button
+											JButton otherServicesTrimButton = new JButton ( "Trim" );
+											otherServicesTrimButton.addActionListener 
+											( 
+												new ActionListener ( )
+												{	
+													@Override
+													public void actionPerformed ( ActionEvent event )
+													{
+														// Register should add a long deep condition item to transaction
+														windowManager.remove ( otherServicesOptionsPanel, windowFrame );
+														windowManager.addWithConstraints ( inventoryPanel, windowFrame, 8, 5, 16, 8, 0, 1 );
+													}
+												}
+											);
+		// ... ... ... ... ... ... ... Other Services Options Panel
+											otherServicesOptionsManager.addWithConstraints ( otherServicesTrimButton, 2, 0, 4, 2, 0, 1 );
+											windowManager.addWithConstraints ( otherServicesOptionsPanel, windowFrame, 8, 5, 16, 8, 0, 1 );
 									}
 								}
 							);
@@ -562,8 +654,7 @@ public class RegisterGUI
 								{	
 									@Override
 									public void actionPerformed(ActionEvent event) {
-										// ShampoosOptionsGUI constructor call here
-//										windowFrame.setVisible ( false );
+										// Register should add a shampoo item to transaction
 									}
 								}
 							);
@@ -575,8 +666,7 @@ public class RegisterGUI
 								{	
 									@Override
 									public void actionPerformed(ActionEvent event) {
-										// ConditionersOptionsGUI constructor call here
-//										windowFrame.setVisible ( false );
+										// Register should add a conditioner item to transaction
 									}
 								}
 							);
@@ -588,8 +678,7 @@ public class RegisterGUI
 								{	
 									@Override
 									public void actionPerformed(ActionEvent event) {
-										// StylingGelsOptionsGUI constructor call here
-//										windowFrame.setVisible ( false );
+										// Register should add a styling gel item to transaction
 									}
 								}
 							);
@@ -601,8 +690,7 @@ public class RegisterGUI
 								{	
 									@Override
 									public void actionPerformed(ActionEvent event) {
-										// StylingToolsOptionsGUI constructor call here
-//										windowFrame.setVisible ( false );
+										// Register should add a styling tool item to transaction
 									}
 								}
 							);
@@ -614,8 +702,7 @@ public class RegisterGUI
 								{	
 									@Override
 									public void actionPerformed(ActionEvent event) {
-										// DryShampoosOptionsGUI constructor call here
-//										windowFrame.setVisible ( false );
+										// Register should add a dry shampoo item to transaction
 									}
 								}
 							);
@@ -627,8 +714,7 @@ public class RegisterGUI
 								{	
 									@Override
 									public void actionPerformed(ActionEvent event) {
-										// DeepConditionersOptionsGUI constructor call here
-//										windowFrame.setVisible ( false );
+										// Register should add a deep conditioner item to transaction
 									}
 								}
 							);
@@ -640,8 +726,7 @@ public class RegisterGUI
 								{	
 									@Override
 									public void actionPerformed(ActionEvent event) {
-										// HairSpraysOptionsGUI constructor call here
-//										windowFrame.setVisible ( false );
+										// Register should add a hair spray item to transaction
 									}
 								}
 							);
@@ -653,8 +738,7 @@ public class RegisterGUI
 								{	
 									@Override
 									public void actionPerformed(ActionEvent event) {
-										// otherProductsOptionsGUI constructor call here
-//										windowFrame.setVisible ( false );
+										// Register should add an other products item to transaction
 									}
 								}
 							);
@@ -782,6 +866,6 @@ public class RegisterGUI
 				windowFrame.setLocationRelativeTo ( null );
 	}
 
-	public static int defaultClose;
+	private static int defaultClose;
 
 }

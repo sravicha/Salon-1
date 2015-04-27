@@ -71,7 +71,7 @@ public class GridBagLayoutManager
 	}
 
 
-	public static JComponent component;
-	public static JFrame frame;
-	public static GridBagConstraints constraints;
+	private static JComponent component;
+	private static JFrame frame;
+	private static GridBagConstraints constraints;
 }

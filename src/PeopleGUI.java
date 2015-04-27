@@ -96,5 +96,5 @@ public class PeopleGUI
 	}
 
 //	public static String peopleType;
-	public static int defaultClose;
+	private static int defaultClose;
 }
