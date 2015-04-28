@@ -33,7 +33,7 @@ public class Installation {
 
         final JFrame bye = new JFrame("Nests Salon System Installed");
         bye.setLayout(new FlowLayout());
-        JLabel leave = new JLabel("Thanks! Restart System to continue using.");
+        JLabel leave = new JLabel("Thanks! Restart System to continue using.\n Your Employee Number is 1001");
 
         JLabel first   = new JLabel("First Name:");
         JLabel last    = new JLabel("Last Name: ");
