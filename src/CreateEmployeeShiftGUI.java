@@ -5,7 +5,7 @@ import javax.swing.border.*;
 
 public class CreateEmployeeShiftGUI
 {
-	public CreateEmployeeShiftGUI ( int newDefaultClose )
+	public CreateEmployeeShiftGUI ( int newDefaultClose, final Employee user )
 	{
 		defaultClose = newDefaultClose;
 
@@ -56,7 +56,7 @@ public class CreateEmployeeShiftGUI
 									@Override
 									public void actionPerformed(ActionEvent event) {
 										@SuppressWarnings("unused")
-										CalendarGUI calendarGUI = new CalendarGUI ( JFrame.EXIT_ON_CLOSE );
+										CalendarGUI calendarGUI = new CalendarGUI ( JFrame.EXIT_ON_CLOSE, user);
 										windowFrame.setVisible ( false );
 									}
 								}

@@ -5,7 +5,7 @@ import javax.swing.border.*;
 
 public class InventoryGUI
 {
-	public InventoryGUI ( int newDefaultClose )
+	public InventoryGUI(int newDefaultClose, final Employee user)
 	{
 		defaultClose = newDefaultClose;
 
@@ -74,7 +74,7 @@ public class InventoryGUI
 									@Override
 									public void actionPerformed(ActionEvent event) {
 										@SuppressWarnings("unused")
-										HomeGUI homeGUI = new HomeGUI ( JFrame.EXIT_ON_CLOSE );
+										HomeGUI homeGUI = new HomeGUI ( JFrame.EXIT_ON_CLOSE, user );
 										windowFrame.setVisible ( false );
 									}
 								}

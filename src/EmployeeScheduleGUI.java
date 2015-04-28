@@ -5,7 +5,7 @@ import javax.swing.border.*;
 
 public class EmployeeScheduleGUI
 {
-	public EmployeeScheduleGUI ( int newEmployeeID, int newDefaultClose )
+	public EmployeeScheduleGUI ( int newEmployeeID, int newDefaultClose, final Employee user )
 	{
 		employeeID = newEmployeeID;
 		defaultClose = newDefaultClose;
@@ -140,7 +140,7 @@ public class EmployeeScheduleGUI
 									@Override
 									public void actionPerformed(ActionEvent event) {
 										@SuppressWarnings("unused")
-										CreateEmployeeShiftGUI createEmployeeShiftGUI = new CreateEmployeeShiftGUI ( JFrame.EXIT_ON_CLOSE );
+										CreateEmployeeShiftGUI createEmployeeShiftGUI = new CreateEmployeeShiftGUI ( JFrame.EXIT_ON_CLOSE, user );
 									}
 								}
 							);
@@ -166,7 +166,7 @@ public class EmployeeScheduleGUI
 									@Override
 									public void actionPerformed(ActionEvent event) {
 										@SuppressWarnings("unused")
-										CalendarGUI calendarGUI = new CalendarGUI ( JFrame.EXIT_ON_CLOSE );
+										CalendarGUI calendarGUI = new CalendarGUI ( JFrame.EXIT_ON_CLOSE, user);
 										windowFrame.setVisible ( false );
 									}
 								}

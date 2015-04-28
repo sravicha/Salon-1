@@ -7,11 +7,10 @@ public class EnterEmployeeIDGUI
 {
 	public EnterEmployeeIDGUI ( int newDefaultClose )
 	{
-		defaultClose = newDefaultClose;
 
 		// Window
 			final JFrame windowFrame = new JFrame ( );
-			windowFrame.setDefaultCloseOperation ( defaultClose );
+			windowFrame.setDefaultCloseOperation (newDefaultClose);
 		// ... Window Components
 		// ... ... Title
 		// ... ... ... Title Text Area
@@ -37,7 +36,7 @@ public class EnterEmployeeIDGUI
 									@Override
 									public void actionPerformed(ActionEvent event) {
 										@SuppressWarnings("unused")
-										CalendarGUI calendarGUI = new CalendarGUI ( JFrame.EXIT_ON_CLOSE );
+										CalendarGUI calendarGUI = new CalendarGUI ( JFrame.EXIT_ON_CLOSE, new Employee() );
 										windowFrame.setVisible ( false );
 									}
 								}
@@ -51,7 +50,7 @@ public class EnterEmployeeIDGUI
 									@Override
 									public void actionPerformed(ActionEvent event) {
 										@SuppressWarnings("unused")
-										EmployeeScheduleGUI employeeScheduleGUI = new EmployeeScheduleGUI ( employeeID, JFrame.EXIT_ON_CLOSE );
+										EmployeeScheduleGUI employeeScheduleGUI = new EmployeeScheduleGUI ( employeeID, JFrame.EXIT_ON_CLOSE, new Employee() );
 										windowFrame.setVisible ( false );
 									}
 								}
@@ -73,5 +72,4 @@ public class EnterEmployeeIDGUI
 	}
 
 	private static int employeeID;
-	private static int defaultClose;
 }

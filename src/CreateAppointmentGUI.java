@@ -5,13 +5,12 @@ import javax.swing.border.*;
 
 public class CreateAppointmentGUI
 {
-	public CreateAppointmentGUI ( int newDefaultClose )
+	public CreateAppointmentGUI ( int newDefaultClose, final Employee user )
 	{
-		defaultClose = newDefaultClose;
 
 		// Window
 			final JFrame windowFrame = new JFrame ( );
-			windowFrame.setDefaultCloseOperation ( defaultClose );
+			windowFrame.setDefaultCloseOperation (newDefaultClose);
 		// ... Window Components
 		// ... ... Title
 		// ... ... ... Title Text Area
@@ -56,7 +55,7 @@ public class CreateAppointmentGUI
 									@Override
 									public void actionPerformed(ActionEvent event) {
 										@SuppressWarnings("unused")
-										CalendarGUI calendarGUI = new CalendarGUI ( JFrame.EXIT_ON_CLOSE );
+										CalendarGUI calendarGUI = new CalendarGUI ( JFrame.EXIT_ON_CLOSE, user);
 										windowFrame.setVisible ( false );
 									}
 								}
@@ -91,5 +90,4 @@ public class CreateAppointmentGUI
 				windowFrame.setLocationRelativeTo ( null );
 	}
 
-	private static int defaultClose;
 }

@@ -9,13 +9,12 @@ import javax.swing.border.*;
 
 public class CalendarGUI
 {
-	public CalendarGUI ( int newDefaultClose )
+	public CalendarGUI(int newDefaultClose, final Employee user)
 	{
-		defaultClose = newDefaultClose;
 
 		// Window
 			final JFrame windowFrame = new JFrame ( );
-			windowFrame.setDefaultCloseOperation ( defaultClose );
+			windowFrame.setDefaultCloseOperation (newDefaultClose);
 		// ... Window Components
 		// ... ... Title
 		// ... ... ... Title Components
@@ -143,7 +142,7 @@ public class CalendarGUI
 									@Override
 									public void actionPerformed(ActionEvent event) {
 										@SuppressWarnings("unused")
-										CreateAppointmentGUI createAppointment = new CreateAppointmentGUI ( JFrame.EXIT_ON_CLOSE );
+										CreateAppointmentGUI createAppointment = new CreateAppointmentGUI ( JFrame.EXIT_ON_CLOSE, user );
 										windowFrame.setVisible ( false );
 									}
 								}
@@ -171,7 +170,7 @@ public class CalendarGUI
 									@Override
 									public void actionPerformed(ActionEvent event) {
 										@SuppressWarnings("unused")
-										HomeGUI homeGUI = new HomeGUI ( JFrame.EXIT_ON_CLOSE );
+										HomeGUI homeGUI = new HomeGUI ( JFrame.EXIT_ON_CLOSE, user);
 										windowFrame.setVisible ( false );
 									}
 								}
@@ -199,5 +198,4 @@ public class CalendarGUI
 //		String [ ] daysTableColumnNames = { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" };
 //	}
 
-	private static int defaultClose;
 }

@@ -6,13 +6,11 @@ import java.awt.event.*;
 public class HomeGUI
 {
 
-	public HomeGUI ( int newDefaultClose )
+	public HomeGUI ( int newDefaultClose, final Employee user )
 	{
-		defaultClose = newDefaultClose;
-
 		// Window
 			final JFrame windowFrame = new JFrame ( );
-			windowFrame.setDefaultCloseOperation ( defaultClose );
+			windowFrame.setDefaultCloseOperation (newDefaultClose);
 		// ... Window Components
 		// ... ... Title
 		// ... ... ... Title Text Area
@@ -34,7 +32,7 @@ public class HomeGUI
 									@Override
 									public void actionPerformed(ActionEvent event) {
 										@SuppressWarnings("unused")
-										CalendarGUI calendarGUI = new CalendarGUI ( JFrame.DISPOSE_ON_CLOSE );
+										CalendarGUI calendarGUI = new CalendarGUI ( JFrame.DISPOSE_ON_CLOSE, user );
 
 									}
 								}
@@ -48,7 +46,7 @@ public class HomeGUI
 									@Override
 									public void actionPerformed(ActionEvent event) {
 										@SuppressWarnings("unused")
-										RegisterGUI registerGUI = new RegisterGUI ( JFrame.DISPOSE_ON_CLOSE );
+										RegisterGUI registerGUI = new RegisterGUI ( JFrame.DISPOSE_ON_CLOSE, user );
 
 									}
 								}
@@ -62,7 +60,7 @@ public class HomeGUI
 									@Override
 									public void actionPerformed(ActionEvent event) {
 										@SuppressWarnings("unused")
-										InventoryGUI inventoryGUI = new InventoryGUI ( JFrame.DISPOSE_ON_CLOSE );
+										InventoryGUI inventoryGUI = new InventoryGUI ( JFrame.DISPOSE_ON_CLOSE, user );
 
 									}
 								}
@@ -89,7 +87,7 @@ public class HomeGUI
 									@Override
 									public void actionPerformed(ActionEvent event) {
 										@SuppressWarnings("unused")
-										PeopleGUI peopleGUI = new PeopleGUI ( JFrame.DISPOSE_ON_CLOSE );
+										PeopleGUI peopleGUI = new PeopleGUI ( JFrame.DISPOSE_ON_CLOSE, user );
 
 									}
 								}
@@ -102,7 +100,8 @@ public class HomeGUI
 								{	
 									@Override
 									public void actionPerformed(ActionEvent event) {
-										// Sign out method here	
+										SignIn s = new SignIn();
+										windowFrame.dispose();
 									}
 								}
 							);
@@ -137,7 +136,5 @@ public class HomeGUI
 				windowFrame.setVisible ( true );
 				windowFrame.setLocationRelativeTo ( null );
 	}
-
-	private static int defaultClose;
 
 }

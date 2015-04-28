@@ -18,7 +18,7 @@ public class Installation {
     private static String managerEmail;
     private static int managerSalary;
 
-    public static void main(String[] args) {
+    Installation() {
         final JFrame frame = new JFrame("Nests Salon System Installation");
         frame.setLayout(new BorderLayout());
         JTextArea welcome = new JTextArea(
@@ -82,7 +82,8 @@ public class Installation {
                 new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent actionEvent) {
-                        // execute salon system!
+                        SignIn s = new SignIn();
+                        bye.dispose();
                     }
                 }
         );

@@ -6,7 +6,7 @@ import javax.swing.border.*;
 
 public class RegisterGUI 
 {
-	public RegisterGUI ( int newDefaultClose )
+	public RegisterGUI(int newDefaultClose, final Employee user)
 	{
 
 		// Window
@@ -802,7 +802,7 @@ public class RegisterGUI
 									@Override
 									public void actionPerformed(ActionEvent event) {
 										@SuppressWarnings("unused")
-										RegisterGUI registerGUI = new RegisterGUI ( JFrame.EXIT_ON_CLOSE );	
+										RegisterGUI registerGUI = new RegisterGUI ( JFrame.EXIT_ON_CLOSE, user);
 										windowFrame.setVisible ( false );
 									}
 								}
@@ -842,7 +842,7 @@ public class RegisterGUI
 									@Override
 									public void actionPerformed(ActionEvent event) {
 										@SuppressWarnings("unused")
-										HomeGUI homeGUI = new HomeGUI ( JFrame.EXIT_ON_CLOSE );
+										HomeGUI homeGUI = new HomeGUI ( JFrame.EXIT_ON_CLOSE, user );
 										windowFrame.setVisible ( false );
 									}
 								}

@@ -5,7 +5,7 @@ import javax.swing.border.*;
 
 public class PeopleGUI
 {
-	public PeopleGUI ( /*String newPeopleType,*/ int newDefaultClose )
+	public PeopleGUI( /*String newPeopleType,*/ int newDefaultClose, final Employee user)
 	{
 //		peopleType = newPeopleType;
 		defaultClose = newDefaultClose;
@@ -73,7 +73,7 @@ public class PeopleGUI
 									@Override
 									public void actionPerformed(ActionEvent event) {
 										@SuppressWarnings("unused")
-										HomeGUI homeGUI = new HomeGUI ( JFrame.EXIT_ON_CLOSE );
+										HomeGUI homeGUI = new HomeGUI ( JFrame.EXIT_ON_CLOSE, user );
 										windowFrame.setVisible ( false );
 									}
 								}
