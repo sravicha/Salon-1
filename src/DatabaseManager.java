@@ -658,8 +658,11 @@ public class DatabaseManager {
                 else if (obj instanceof Inventory) {
                     while (rs.next()) {
                         ((Inventory) obj).setId(rs.getInt("id"));
-                        ((Inventory) obj).setName(rs.getString("item"));
+                        ((Inventory) obj).setName(rs.getString("item_name"));
                         ((Inventory) obj).setStock(rs.getInt("stock"));
+                        ((Inventory) obj).setPrice(rs.getInt("price"));
+                        ((Inventory) obj).setCategory(rs.getString("category"));
+                        ((Inventory) obj).setSupplier(rs.getString("supplier"));
                         tableItems.add(obj);
                     }
                 }

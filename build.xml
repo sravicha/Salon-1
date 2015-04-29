@@ -14,7 +14,7 @@
         <jar destfile="out/jar/Salon.jar" basedir="out/classes">
             <zipgroupfileset dir="lib" includes="sqlite-jdbc-3.8.7.jar"/>
             <manifest>
-              <attribute name="Main-Class" value="Salon"/>
+              <attribute name="Main-Class" value="TestDatabaseManager"/>
             </manifest>
         </jar>
     </target>
