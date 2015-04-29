@@ -1,13 +1,14 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import javax.swing.*;
 import javax.swing.border.*;
 
 public class EmployeeScheduleGUI
 {
-	public EmployeeScheduleGUI ( int newEmployeeID, int newDefaultClose, final Employee user )
+	@SuppressWarnings("unused")
+	public EmployeeScheduleGUI ( int newDefaultClose, final Employee user )
 	{
-		employeeID = newEmployeeID;
 		defaultClose = newDefaultClose;
 
 		// Window
@@ -139,7 +140,6 @@ public class EmployeeScheduleGUI
 								{	
 									@Override
 									public void actionPerformed(ActionEvent event) {
-										@SuppressWarnings("unused")
 										CreateEmployeeShiftGUI createEmployeeShiftGUI = new CreateEmployeeShiftGUI ( JFrame.EXIT_ON_CLOSE, user );
 									}
 								}
@@ -165,8 +165,7 @@ public class EmployeeScheduleGUI
 								{	
 									@Override
 									public void actionPerformed(ActionEvent event) {
-										@SuppressWarnings("unused")
-										CalendarGUI calendarGUI = new CalendarGUI ( JFrame.EXIT_ON_CLOSE, user);
+										CalendarGUI calendarGUI = new CalendarGUI ( JFrame.EXIT_ON_CLOSE, user );
 										windowFrame.setVisible ( false );
 									}
 								}
@@ -189,6 +188,6 @@ public class EmployeeScheduleGUI
 				windowFrame.setLocationRelativeTo ( null );
 	}
 
-	private static int employeeID;
-	private static int defaultClose;
+	public static int employeeID;
+	public static int defaultClose;
 }
